@@ -4,13 +4,14 @@ info:
   description: REST API for retrieving country information
   version: 1.0.0
 servers:
-  - url: https://restcountries.com/v3.1
+  - url: 'https://restcountries.com/v3.1'
 paths:
-  /name/{name}:
+  /v3.1/name/{name}:
     get:
       summary: Get country information by name
       description: |
         Retrieve information about a country by its name.
+      operationId: v1Name
       parameters:
         - in: path
           name: name
