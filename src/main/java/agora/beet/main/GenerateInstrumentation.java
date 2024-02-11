@@ -26,8 +26,10 @@ import java.util.stream.Collectors;
  */
 public class GenerateInstrumentation {
 
-    private static String openApiSpecPath = "src/test/resources/examples/RESTCountries/spec.yaml";
-    private static String testCasesFilePath = "src/test/resources/examples/RESTCountries/1/test_1.csv";
+    // private static String openApiSpecPath = "src/test/resources/examples/Spotify/getAlbumTracks/swagger_albumTracks.yaml";
+    private static String openApiSpecPath = "src/test/resources/examples/RestCountries/1/spec.yaml";
+    private static String testCasesFilePath = "src/test/resources/examples/RestCountries/1/test_1.csv";
+    // private static String testCasesFilePath = "src/test/resources/examples/Spotify/getAlbumTracks/50/Spotify_GetAlbumTracks_50.csv";
     private static boolean generateDtrace = true;
     public static String[] stringsToConsiderAsNull = {};
 
@@ -196,7 +198,7 @@ public class GenerateInstrumentation {
         ParseOptions parseOptions = new ParseOptions();
         parseOptions.setResolveFully(true);
         parseOptions.setFlatten(true);
-
+        // System.out.println(openApiSpecPath);
         return new OpenAPIV3Parser().read(openApiSpecPath, null, parseOptions);
     }
 
