@@ -135,8 +135,8 @@ public class GenerateInstrumentation {
                 while((testCasesLine = testCasesBR.readLine()) != null) {
                     TestCase testCase = testCaseFileManager.getTestCase(CSVManager.getCSVRecord(testCasesLine));
 
-                    if(i%50==0){
-                        System.out.println("Generated dtrace for " + i + " test cases");
+                    if((i+1)%50==0){
+                        System.out.println("Generated dtrace for " + (i+1) + " test cases");
                     }
                     i++;
 
