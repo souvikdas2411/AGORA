@@ -11,14 +11,14 @@ def make_vote(image_id, headers, data):
 
 def main():
     # Fetching image ids
-    url = "https://api.thecatapi.com/v1/images/search?limit=100&api_key=live_ogfLUEXW60knN7kzh4jjf5VTdHDUbKFx5uAme8rmcKqQhjeYwHIf4XnfDUPzTuKS"
+    url = "https://api.thecatapi.com/v1/images/search?limit=200&api_key=live_ogfLUEXW60knN7kzh4jjf5VTdHDUbKFx5uAme8rmcKqQhjeYwHIf4XnfDUPzTuKS"
     response = requests.get(url)
     data = response.json()
 
     ids = [cat["id"] for cat in data]
 
     # Open CSV file for writing
-    with open('src/test/resources/examples/TheCatApi/100/cat_info.csv', 'w', newline='', encoding='utf-8') as csvfile:
+    with open('src/test/resources/examples/TheCatApi/500/cat_info.csv', 'w', newline='', encoding='utf-8') as csvfile:
         fieldnames = ['testCaseId', 'queryParameters', 'operationId', 'path', 'httpMethod', 'headerParameters', 
                       'pathParameters', 'formParameters', 'bodyParameter', 'statusCode', 'responseBody']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
