@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 public class GenerateInstrumentation {
 
     private static String openApiSpecPath = "src/test/resources/examples/RestCountries/specSw.yaml";
-    private static String testCasesFilePath = "src/test/resources/examples/RestCountries/100/country_info.csv";
+    private static String testCasesFilePath = "src/test/resources/examples/RestCountries/200/country_info.csv";
     private static boolean generateDtrace = true;
     public static String[] stringsToConsiderAsNull = {};
 
