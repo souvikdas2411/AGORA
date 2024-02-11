@@ -40,6 +40,7 @@ def main():
         # Loop through country names
         for i, country_name in enumerate(country_names):
             country_info, status = get_country_info(country_name)
+            print("API Call " + str(i) + "\nStatus Code " + str(status))
             response_body = json.dumps(country_info)
             writer.writerow({
                 'testCaseId': i,

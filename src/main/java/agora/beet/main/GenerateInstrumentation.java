@@ -12,7 +12,6 @@ import io.swagger.v3.oas.models.Paths;
 import io.swagger.v3.parser.OpenAPIV3Parser;
 import io.swagger.v3.parser.core.models.ParseOptions;
 
-
 import java.io.*;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -196,7 +195,6 @@ public class GenerateInstrumentation {
         ParseOptions parseOptions = new ParseOptions();
         parseOptions.setResolveFully(true);
         parseOptions.setFlatten(true);
-        // System.out.println(openApiSpecPath);
         return new OpenAPIV3Parser().read(openApiSpecPath, null, parseOptions);
     }
 
