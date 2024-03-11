@@ -1,9 +1,8 @@
 swagger: '2.0'
 info:
-  version: '1.0.0'
-  title: Country Information API
-  description: API to retrieve country details based on currency code.
-host: restcountries.com
+  title: Rest Countries API
+  description: API for retrieving information about countries based on language
+  version: 1.0.0
 basePath: /v3.1
 schemes:
   - https
