@@ -1,0 +1,57 @@
+swagger: "2.0"
+info:
+  title: "Pet Clinic API"
+  description: "API for managing pet owners in a pet clinic"
+  version: "1.0.0"
+basePath: "/petclinic/api"
+schemes:
+  - "http"
+paths:
+  /owners:
+    post:
+      summary: "Create a new pet owner"
+      operationId: base
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: body
+          name: owner
+          description: "Pet owner object to be created"
+          required: true
+          schema:
+            type: object
+            properties:
+              firstName:
+                type: string
+              lastName:
+                type: string
+              address:
+                type: string
+              city:
+                type: string
+              telephone:
+                type: string
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              firstName:
+                type: string
+              lastName:
+                type: string
+              address:
+                type: string
+              city:
+                type: string
+              telephone:
+                type: string
+              id:
+                type: integer
+              pets:
+                type: array
+                items:
+                  type: object
