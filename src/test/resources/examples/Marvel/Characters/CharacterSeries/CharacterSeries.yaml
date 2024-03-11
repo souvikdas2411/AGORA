@@ -1,125 +1,109 @@
-openapi: 3.0.1
+swagger: "2.0"
 info:
-  title: Marvel Characters API
-  description: API for accessing series information related to Marvel characters.
-  version: 1.0.0
-servers:
-  - url: 'http://gateway.marvel.com/v1/public'
+  title: "Marvel Characters API"
+  description: "API for accessing series information related to Marvel characters."
+  version: "1.0.0"
+basePath: "/v1/public"
+schemes:
+  - "http"
 paths:
   /characters/{character_id}/series:
     get:
-      summary: Character series
-      description: Fetches lists of series filtered by a character ID.
-      operationId: characterId/series
+      summary: "Character series"
+      description: "Fetches lists of series filtered by a character ID."
+      operationId: "characterId/series"
       parameters:
-        - name: characterId
+        - name: character_id
           in: path
           required: true
-          schema:
-            type: string
-          description: The character ID.
+          type: string
+          description: "The character ID."
         - name: title
           in: query
-          schema:
-            type: string
-          description: Filter by series title.
+          type: string
+          description: "Filter by series title."
         - name: titleStartsWith
           in: query
-          schema:
-            type: string
-          description: Return series with titles that begin with the specified string (e.g., Sp).
+          type: string
+          description: "Return series with titles that begin with the specified string."
         - name: startYear
           in: query
-          schema:
-            type: integer
-          description: Return only series matching the specified start year.
+          type: integer
+          description: "Return only series matching the specified start year."
         - name: modifiedSince
           in: query
-          schema:
-            type: string
-          description: Return only series which have been modified since the specified date.
+          type: string
+          description: "Return only series which have been modified since the specified date."
         - name: comics
           in: query
-          schema:
-            type: string
-          description: Return only series which contain the specified comics (accepts a comma-separated list of ids).
+          type: string
+          description: "Return only series which contain the specified comics."
         - name: stories
           in: query
-          schema:
-            type: string
-          description: Return only series which contain the specified stories (accepts a comma-separated list of ids).
+          type: string
+          description: "Return only series which contain the specified stories."
         - name: events
           in: query
-          schema:
-            type: string
-          description: Return only series which have comics that take place during the specified events (accepts a comma-separated list of ids).
+          type: string
+          description: "Return only series which have comics that take place during the specified events."
         - name: creators
           in: query
-          schema:
-            type: string
-          description: Return only series which feature work by the specified creators (accepts a comma-separated list of ids).
+          type: string
+          description: "Return only series which feature work by the specified creators."
         - name: seriesType
           in: query
-          schema:
-            type: string
-          description: Filter the series by publication frequency type.
+          type: string
+          description: "Filter the series by publication frequency type."
         - name: contains
           in: query
-          schema:
-            type: string
-          description: Return only series containing one or more comics with the specified format.
+          type: string
+          description: "Return only series containing one or more comics with the specified format."
         - name: orderBy
           in: query
-          schema:
-            type: string
-          description: Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
+          type: string
+          description: "Order the result set by a field or fields."
         - name: limit
           in: query
-          schema:
-            type: integer
-          description: Limit the result set to the specified number of resources.
+          type: integer
+          description: "Limit the result set to the specified number of resources."
         - name: offset
           in: query
-          schema:
-            type: integer
-          description: Skip the specified number of resources in the result set.
+          type: integer
+          description: "Skip the specified number of resources in the result set."
       responses:
         '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SeriesDataWrapper'
-components:
-  schemas:
-    SeriesDataWrapper:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            results:
-              type: array
-              items:
-                $ref: '#/components/schemas/Series'
-    Series:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: The unique ID of the series.
-        title:
-          type: string
-          description: The title of the series.
-        description:
-          type: string
-          description: A short bio or description of the series.
-        startYear:
-          type: integer
-          description: The start year of the series.
-        endYear:
-          type: integer
-          description: The end year of the series.
-        rating:
-          type: string
-          description: The age-appropriateness rating of the series.
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/SeriesDataWrapper"
+definitions:
+  SeriesDataWrapper:
+    type: object
+    properties:
+      data:
+        type: object
+        properties:
+          results:
+            type: array
+            items:
+              $ref: "#/definitions/Series"
+  Series:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: "The unique ID of the series."
+      title:
+        type: string
+        description: "The title of the series."
+      description:
+        type: string
+        description: "A short bio or description of the series."
+      startYear:
+        type: integer
+        description: "The start year of the series."
+      endYear:
+        type: integer
+        description: "The end year of the series."
+      rating:
+        type: string
+        description: "The age-appropriateness rating of the series."
