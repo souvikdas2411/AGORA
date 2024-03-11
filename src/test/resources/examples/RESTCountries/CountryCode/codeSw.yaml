@@ -1,0 +1,193 @@
+swagger: '2.0'
+info:
+  title: Rest Countries API
+  description: API for retrieving information about countries based on currency
+  version: '1.0.0'
+basePath: /v3.1
+schemes:
+  - https
+paths:
+  /alpha/{code}:
+    get:
+      summary: Get countries by currency
+      operationId: v3Code
+      parameters:
+        - name: currency
+          in: path
+          description: Currency code (e.g., "COP" for Colombian Peso)
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: object
+                  properties:
+                    common:
+                      type: string
+                    official:
+                      type: string
+                    nativeName:
+                      type: object
+                      additionalProperties:
+                        type: object
+                        properties:
+                          official:
+                            type: string
+                          common:
+                            type: string
+                tld:
+                  type: array
+                  items:
+                    type: string
+                cca2:
+                  type: string
+                ccn3:
+                  type: string
+                cca3:
+                  type: string
+                cioc:
+                  type: string
+                independent:
+                  type: boolean
+                status:
+                  type: string
+                unMember:
+                  type: boolean
+                currencies:
+                  type: object
+                  additionalProperties:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      symbol:
+                        type: string
+                idd:
+                  type: object
+                  properties:
+                    root:
+                      type: string
+                    suffixes:
+                      type: array
+                      items:
+                        type: string
+                capital:
+                  type: array
+                  items:
+                    type: string
+                altSpellings:
+                  type: array
+                  items:
+                    type: string
+                region:
+                  type: string
+                subregion:
+                  type: string
+                languages:
+                  type: object
+                  additionalProperties:
+                    type: string
+                translations:
+                  type: object
+                  additionalProperties:
+                    type: object
+                    properties:
+                      official:
+                        type: string
+                      common:
+                        type: string
+                latlng:
+                  type: array
+                  items:
+                    type: number
+                landlocked:
+                  type: boolean
+                borders:
+                  type: array
+                  items:
+                    type: string
+                area:
+                  type: number
+                demonyms:
+                  type: object
+                  additionalProperties:
+                    type: object
+                    properties:
+                      f:
+                        type: string
+                      m:
+                        type: string
+                flag:
+                  type: string
+                maps:
+                  type: object
+                  properties:
+                    googleMaps:
+                      type: string
+                    openStreetMaps:
+                      type: string
+                population:
+                  type: integer
+                gini:
+                  type: object
+                  additionalProperties:
+                    type: number
+                fifa:
+                  type: string
+                car:
+                  type: object
+                  properties:
+                    signs:
+                      type: array
+                      items:
+                        type: string
+                    side:
+                      type: string
+                timezones:
+                  type: array
+                  items:
+                    type: string
+                continents:
+                  type: array
+                  items:
+                    type: string
+                flags:
+                  type: object
+                  properties:
+                    png:
+                      type: string
+                    svg:
+                      type: string
+                    alt:
+                      type: string
+                coatOfArms:
+                  type: object
+                  properties:
+                    png:
+                      type: string
+                    svg:
+                      type: string
+                startOfWeek:
+                  type: string
+                capitalInfo:
+                  type: object
+                  properties:
+                    latlng:
+                      type: array
+                      items:
+                        type: number
+                postalCode:
+                  type: object
+                  properties:
+                    format:
+                      type: string
+                    regex:
+                      type: string
+      tags:
+        - Countries

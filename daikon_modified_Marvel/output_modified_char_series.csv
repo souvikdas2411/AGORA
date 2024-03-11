@@ -1,0 +1,28 @@
+Daikon version 5.8.10, released November 1, 2021; http://plse.cs.washington.edu/daikon.
+Reading declaration files .(read 1 decls file)
+Processing trace data; reading 1 dtrace file:
+
+===========================================================================
+/characters/{character_id}/series&characterId/series&200&data&results():::ENTER
+input != null
+===========================================================================
+/characters/{character_id}/series&characterId/series&200&data&results():::EXIT
+input == orig(input)
+input != null
+return != null
+return.id != return.startYear
+return.title != return.description
+return.title != return.rating
+return.description != return.rating
+===========================================================================
+/characters/{character_id}/series&characterId/series&200():::ENTER
+input != null
+===========================================================================
+/characters/{character_id}/series&characterId/series&200():::EXIT
+input == orig(input)
+input != null
+return != null
+return.data != null
+return.data.results != null
+return.data.results[] elements != null
+Exiting Daikon.
