@@ -10,7 +10,7 @@ paths:
     get:
       summary: Character series
       description: Fetches lists of series filtered by a character ID.
-      operationId: getCharacterSeries
+      operationId: characterId/series
       parameters:
         - name: characterId
           in: path

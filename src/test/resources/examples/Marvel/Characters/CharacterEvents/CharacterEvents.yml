@@ -10,7 +10,7 @@ paths:
     get:
       summary: Character events
       description: Fetches lists of events filtered by a character ID.
-      operationId: getCharacterEvents
+      operationId: characterId/events
       parameters:
         - name: characterId
           in: path

@@ -10,7 +10,7 @@ paths:
     get:
       summary: Character by ID
       description: Fetches a single character by ID.
-      operationId: getCharacterById
+      operationId: characterId
       parameters:
         - name: characterId
           in: path

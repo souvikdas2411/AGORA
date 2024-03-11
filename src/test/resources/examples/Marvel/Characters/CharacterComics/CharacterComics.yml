@@ -10,7 +10,7 @@ paths:
     get:
       summary: Character comics
       description: Fetches lists of comics filtered by a character ID.
-      operationId: getCharacterComics
+      operationId: characterId/comics
       parameters:
         - name: characterId
           in: path

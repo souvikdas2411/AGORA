@@ -10,7 +10,7 @@ paths:
     get:
       summary: Character stories
       description: Fetches lists of stories filtered by a character ID.
-      operationId: getCharacterStories
+      operationId: characterId/stories
       parameters:
         - name: characterId
           in: path
