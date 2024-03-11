@@ -8,7 +8,7 @@ basePath: /v1/public
 schemes:
   - http
 paths:
-  /characters/{characterId}/comics:
+  /characters/{character_id}/comics:
     get:
       summary: Character comics
       description: Fetches lists of comics filtered by a character ID.
