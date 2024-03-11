@@ -6,7 +6,7 @@ info:
 servers:
   - url: 'http://gateway.marvel.com/v1/public'
 paths:
-  /characters/{characterId}/series:
+  /characters/{character_id}/series:
     get:
       summary: Character series
       description: Fetches lists of series filtered by a character ID.

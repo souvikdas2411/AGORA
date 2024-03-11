@@ -1,16 +1,16 @@
 openapi: 3.0.1
 info:
   title: Marvel Characters API
-  description: API for accessing story information related to Marvel characters.
+  description: API for accessing event information related to Marvel characters.
   version: 1.0.0
 servers:
   - url: 'http://gateway.marvel.com/v1/public'
 paths:
-  /characters/{characterId}/stories:
+  /characters/{character_id}/events:
     get:
-      summary: Character stories
-      description: Fetches lists of stories filtered by a character ID.
-      operationId: characterId/stories
+      summary: Character events
+      description: Fetches lists of events filtered by a character ID.
+      operationId: characterId/events
       parameters:
         - name: characterId
           in: path
@@ -18,31 +18,41 @@ paths:
           schema:
             type: string
           description: The character ID.
+        - name: name
+          in: query
+          schema:
+            type: string
+          description: Filter the event list by name.
+        - name: nameStartsWith
+          in: query
+          schema:
+            type: string
+          description: Return events with names that begin with the specified string (e.g., Sp).
         - name: modifiedSince
           in: query
           schema:
             type: string
-          description: Return only stories which have been modified since the specified date.
-        - name: comics
-          in: query
-          schema:
-            type: string
-          description: Return only stories contained in the specified comics (accepts a comma-separated list of ids).
-        - name: series
-          in: query
-          schema:
-            type: string
-          description: Return only stories contained in the specified series (accepts a comma-separated list of ids).
-        - name: events
-          in: query
-          schema:
-            type: string
-          description: Return only stories which take place during the specified events (accepts a comma-separated list of ids).
+          description: Return only events which have been modified since the specified date.
         - name: creators
           in: query
           schema:
             type: string
-          description: Return only stories which feature work by the specified creators (accepts a comma-separated list of ids).
+          description: Return only events which feature work by the specified creators (accepts a comma-separated list of ids).
+        - name: series
+          in: query
+          schema:
+            type: string
+          description: Return only events which are part of the specified series (accepts a comma-separated list of ids).
+        - name: comics
+          in: query
+          schema:
+            type: string
+          description: Return only events which take place in the specified comics (accepts a comma-separated list of ids).
+        - name: stories
+          in: query
+          schema:
+            type: string
+          description: Return only events which contain the specified stories (accepts a comma-separated list of ids).
         - name: orderBy
           in: query
           schema:
@@ -64,10 +74,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StoryDataWrapper'
+                $ref: '#/components/schemas/EventDataWrapper'
 components:
   schemas:
-    StoryDataWrapper:
+    EventDataWrapper:
       type: object
       properties:
         data:
@@ -76,19 +86,24 @@ components:
             results:
               type: array
               items:
-                $ref: '#/components/schemas/Story'
-    Story:
+                $ref: '#/components/schemas/Event'
+    Event:
       type: object
       properties:
         id:
           type: integer
-          description: The unique ID of the story.
+          description: The unique ID of the event.
         title:
           type: string
-          description: The title of the story.
+          description: The title of the event.
         description:
           type: string
-          description: A short bio or description of the story.
-        type:
+          description: A short bio or description of the event.
+        start:
           type: string
-          description: The type of the story (e.g., cover, interior story).
+          format: date
+          description: The date the event begins.
+        end:
+          type: string
+          format: date
+          description: The date the event ends.

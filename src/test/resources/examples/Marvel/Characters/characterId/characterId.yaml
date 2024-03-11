@@ -6,7 +6,7 @@ info:
 servers:
   - url: 'http://gateway.marvel.com/v1/public'
 paths:
-  /characters/{characterId}:
+  /characters/{character_id}:
     get:
       summary: Character by ID
       description: Fetches a single character by ID.
