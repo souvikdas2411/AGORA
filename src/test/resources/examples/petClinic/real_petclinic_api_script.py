@@ -7,7 +7,7 @@ import json
 base_url = 'http://localhost:9966/petclinic/api'
 endpoint = '/owners/{owner_id}'
 
-# Function to create owner and return ID
+# Function to create owner, return ID
 def create_owner():
     owner_data = {
         "firstName": "basu",

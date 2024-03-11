@@ -30,7 +30,7 @@ definitions:
     properties:
       firstName:
         type: string
-        description: "The first name of the owner."
+        description: "The first name of the owner.."
       lastName:
         type: string
         description: "The last name of the owner."
