@@ -1,13 +1,19 @@
-openapi: 3.0.1
+swagger: '2.0'
 info:
   title: Spring PetClinic
   description: Spring PetClinic Sample Application.
+  version: '1.0'
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0
-  version: '1.0'
-servers:
-  - url: http://localhost:9966/petclinic/api
+host: localhost:9966
+basePath: /petclinic/api
+schemes:
+  - http
+produces:
+  - application/json
+consumes:
+  - application/json
 tags:
   - name: failing
     description: Endpoint which always returns an error.
@@ -30,241 +36,125 @@ paths:
     post:
       tags:
         - owner
-      operationId: addOwner
       summary: Adds a pet owner
       description: Records the details of a new pet owner.
-      requestBody:
-        description: The pet owner
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/OwnerFields'
-        required: true
+      operationId: addOwner
+      parameters: []
       responses:
-        201:
-          description: The pet owner was sucessfully added.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Owner'
-        400:
+        '201':
+          description: The pet owner was successfully added.
+          schema:
+            $ref: '#/definitions/Owner'
+        '400':
           description: Bad request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RestError'
-        500:
+          schema:
+            $ref: '#/definitions/RestError'
+        '500':
           description: Server error.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RestError'
+          schema:
+            $ref: '#/definitions/RestError'
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/OwnerFields'
     get:
       tags:
         - owner
-      operationId: listOwners
       summary: Lists pet owners
       description: Returns an array of pet owners.
+      operationId: listOwners
       parameters:
         - name: lastName
           in: query
+          type: string
           description: Last name.
-          required: false
-          schema:
-            type: string
-            example: Davis
       responses:
-        200:
+        '200':
           description: Owner details found and returned.
-          headers:
-            ETag:
-              description: An ID for this version of the response.
-              schema:
-                type: string
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Owner'
-        304:
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Owner'
+        '304':
           description: Not modified.
-          headers:
-            ETag:
-              description: An ID for this version of the response.
-              schema:
-                type: string
-        500:
+        '500':
           description: Server error.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RestError'
-components:
-  schemas:
-    RestError:
-      title: REST Error
-      description: The schema for all error responses.
-      type: object
-      properties:
-        status:
-          title: Status
-          description: The HTTP status code.
-          type: integer
-          format: int32
-          example: 400
-          readOnly: true
-        error:
-          title: Error
-          description: The short error message.
-          type: string
-          example: Bad Request
-          readOnly: true
-        path:
-          title: Path
-          description: The path of the URL for this request.
-          type: string
-          format: uri
-          example: '/api/owners'
-          readOnly: true
-        timestamp:
-          title: Timestamp
-          description: The time the error occured.
-          type: string
-          format: date-time
-          example: '2019-08-21T21:41:46.158+0000'
-          readOnly: true
-        message:
-          title: Message
-          description: The long error message.
-          type: string
-          example: 'Request failed schema validation'
-          readOnly: true
-        schemaValidationErrors:
-          title: Schema validation errors
-          description: Validation errors against the OpenAPI schema.
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationMessage'
-        trace:
-          title: Trace
-          description: The stacktrace for this error.
-          type: string
-          example: 'com.atlassian.oai.validator.springmvc.InvalidRequestException: ...'
-          readOnly: true
-      required:
-        - status
-        - error
-        - path
-        - timestamp
-        - message
-        - schemaValidationErrors
-    ValidationMessage:
-      title: Validation message
-      description: Messages describing a validation error.
-      type: object
-      properties:
-        message:
-          title: Message
-          description: The valiation message.
-          type: string
-          example: "[Path '/lastName'] Instance type (null) does not match any allowed primitive type (allowed: [\"string\"])"
-          readOnly: true
-      required:
-        - message
-      additionalProperties: true
-    Specialty:
-      title: Specialty
-      description: Fields of specialty of vets.
-      type: object
-      properties:
-        id:
-          title: ID
-          description: The ID of the specialty.
-          type: integer
-          format: int32
-          minimum: 0
-          example: 1
-          readOnly: true
-        name:
-          title: Name
-          description: The name of the specialty.
-          type: string
-          maxLength: 80
-          minLength: 1
-          example: radiology
-      required:
-        - id
-        - name
-    OwnerFields:
-      title: Owner fields
-      description: Editable fields of a pet owner.
-      type: object
-      properties:
-        firstName:
-          title: First name
-          description: The first name of the pet owner.
-          type: string
-          minLength: 1
-          maxLength: 30
-          pattern: '^[a-zA-Z]*$'
-          example: George
-        lastName:
-          title: Last name
-          description: The last name of the pet owner.
-          type: string
-          minLength: 1
-          maxLength: 30
-          pattern: '^[a-zA-Z]*$'
-          example: Franklin
-        address:
-          title: Address
-          description: The postal address of the pet owner.
-          type: string
-          minLength: 1
-          maxLength: 255
-          example: '110 W. Liberty St.'
-        city:
-          title: City
-          description: The city of the pet owner.
-          type: string
-          minLength: 0
-          maxLength: 80
-          example: Madison
-        telephone:
-          title: Telephone number
-          description: The telephone number of the pet owner.
-          type: string
-          minLength: 1
-          maxLength: 20
-          pattern: '^[0-9]*$'
-          example: '6085551023'
-      required:
-        - firstName
-        - lastName
-        - address
-        - telephone
-    Owner:
-      title: Owner
-      description: A pet owner.
-      allOf:
-        - $ref: '#/components/schemas/OwnerFields'
-        - type: object
-          properties:
-            id:
-              title: ID
-              description: The ID of the pet owner.
-              type: integer
-              format: int32
-              minimum: 0
-              example: 1
-              readOnly: true
-            pets:
-              title: Pets
-              description: The pets owned by this individual including any booked vet visits.
-              type: array
-              items:
-                $ref: '#/components/schemas/Pet'
-              readOnly: true
-          required:
-            - pets
+          schema:
+            $ref: '#/definitions/RestError'
+definitions:
+  Owner:
+    type: object
+    required:
+      - firstName
+      - lastName
+      - address
+      - telephone
+    properties:
+      id:
+        type: integer
+        format: int32
+      firstName:
+        type: string
+      lastName:
+        type: string
+      address:
+        type: string
+      city:
+        type: string
+      telephone:
+        type: string
+      pets:
+        type: array
+        items:
+          $ref: '#/definitions/Pet'
+  OwnerFields:
+    type: object
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      address:
+        type: string
+      city:
+        type: string
+      telephone:
+        type: string
+  Pet:
+    type: object
+    properties:
+    # You should define the pet properties here based on your application's requirements.
+  RestError:
+    type: object
+    properties:
+      status:
+        type: integer
+        format: int32
+      error:
+        type: string
+      path:
+        type: string
+      timestamp:
+        type: string
+        format: date-time
+      message:
+        type: string
+      schemaValidationErrors:
+        type: array
+        items:
+          $ref: '#/definitions/ValidationMessage'
+  ValidationMessage:
+    type: object
+    properties:
+      message:
+        type: string
+  Specialty:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      name:
+        type: string
