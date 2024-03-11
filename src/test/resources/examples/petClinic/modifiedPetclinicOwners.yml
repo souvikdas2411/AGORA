@@ -228,7 +228,7 @@ components:
           title: City
           description: The city of the pet owner.
           type: string
-          minLength: 1
+          minLength: 0
           maxLength: 80
           example: Madison
         telephone:
@@ -243,7 +243,6 @@ components:
         - firstName
         - lastName
         - address
-        - city
         - telephone
     Owner:
       title: Owner
