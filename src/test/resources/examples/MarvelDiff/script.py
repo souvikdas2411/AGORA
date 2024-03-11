@@ -22,7 +22,7 @@ def generate_hash(ts, private_key, api_key):
 def get_marvel_character(character_id):
     ts = str(int(time.time()))
     hash_value = generate_hash(ts, private_key, api_key)
-    url = f'{base_url}{endpoint}{character_id}?apikey={api_key}&hash={hash_value}&ts={ts}'
+    url = f'{base_url}{endpoint}{character_id}/stories?apikey={api_key}&hash={hash_value}&ts={ts}'
     response = requests.get(url)
     return response.json(), response.status_code
 
@@ -30,7 +30,7 @@ def get_marvel_character(character_id):
 def main():
     # Open CSV file for writing
     # /Users/souvikdas/Desktop/OSU/CS569/AGORA/src/test/resources/examples/MarvelDiff/characterId
-    with open('marvel_characters_100.csv', 'w', newline='', encoding='utf-8') as csvfile:
+    with open('marvel_characters_stories_300.csv', 'w', newline='', encoding='utf-8') as csvfile:
         fieldnames = ['testCaseId', 'queryParameters', 'operationId', 'path', 'httpMethod', 'headerParameters',
                       'pathParameters', 'formParameters', 'bodyParameter', 'statusCode', 'responseBody']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -77,8 +77,8 @@ def main():
             writer.writerow({
                 'testCaseId': character_id,
                 'queryParameters': '',
-                'operationId': 'characterId',
-                'path': '/characters/{character_id}',
+                'operationId': 'characterId/stories',
+                'path': '/characters/{character_id}/stories',
                 'httpMethod': 'GET',
                 'headerParameters': '',
                 'pathParameters': f'characterId={character_id}',
