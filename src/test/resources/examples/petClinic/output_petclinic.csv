@@ -1,0 +1,28 @@
+Daikon version 5.8.10, released November 1, 2021; http://plse.cs.washington.edu/daikon.
+Reading declaration files .(read 1 decls file)
+Processing trace data; reading 1 dtrace file:
+
+===========================================================================
+/owners/{owner_id}&getOwnerById&200():::ENTER
+input != null
+===========================================================================
+/owners/{owner_id}&getOwnerById&200():::EXIT
+input == orig(input)
+input != null
+return != null
+return.firstName == "basu"
+return.lastName == "Franklin"
+return.address == "110 W. Liberty St."
+return.city == "110 W"
+return.telephone == "6085551023"
+return.firstName > return.lastName
+return.firstName > return.address
+return.firstName > return.city
+return.firstName > return.telephone
+return.lastName > return.address
+return.lastName > return.city
+return.lastName > return.telephone
+return.address > return.city
+return.address < return.telephone
+return.city < return.telephone
+Exiting Daikon.
