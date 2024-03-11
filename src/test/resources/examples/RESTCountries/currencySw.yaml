@@ -1,25 +1,24 @@
-swagger: "2.0"
+swagger: '2.0'
 info:
-  title: "Country Info API"
-  description: "API to get information about countries based on currency"
-  version: "1.0.0"
-basePath: "/v3.1"
+  title: Rest Countries API
+  description: API for retrieving information about countries based on currency
+  version: '1.0.0'
+basePath: /v3.1
 schemes:
-  - "https"
+  - https
 paths:
-  /currency/{currency}:
+  /currency/{code}:
     get:
-      summary: "Get country information by currency code"
-      operationId: v3Currency
+      summary: Get countries by currency
       parameters:
         - name: currency
           in: path
-          description: "Currency code (e.g., COP)"
+          description: Currency code (e.g., "COP" for Colombian Peso)
           required: true
           type: string
       responses:
-        200:
-          description: "Successful operation"
+        '200':
+          description: Successful response
           schema:
             type: array
             items:
@@ -34,14 +33,13 @@ paths:
                       type: string
                     nativeName:
                       type: object
-                      properties:
-                        spa:
-                          type: object
-                          properties:
-                            official:
-                              type: string
-                            common:
-                              type: string
+                      additionalProperties:
+                        type: object
+                        properties:
+                          official:
+                            type: string
+                          common:
+                            type: string
                 tld:
                   type: array
                   items:
@@ -117,21 +115,13 @@ paths:
                   type: number
                 demonyms:
                   type: object
-                  properties:
-                    eng:
-                      type: object
-                      properties:
-                        f:
-                          type: string
-                        m:
-                          type: string
-                    fra:
-                      type: object
-                      properties:
-                        f:
-                          type: string
-                        m:
-                          type: string
+                  additionalProperties:
+                    type: object
+                    properties:
+                      f:
+                        type: string
+                      m:
+                        type: string
                 flag:
                   type: string
                 maps:
@@ -145,9 +135,8 @@ paths:
                   type: integer
                 gini:
                   type: object
-                  properties:
-                    "2019":
-                      type: number
+                  additionalProperties:
+                    type: number
                 fifa:
                   type: string
                 car:
@@ -192,5 +181,12 @@ paths:
                       type: array
                       items:
                         type: number
-      produces:
-        - "application/json"
+                postalCode:
+                  type: object
+                  properties:
+                    format:
+                      type: string
+                    regex:
+                      type: string
+      tags:
+        - Countries
