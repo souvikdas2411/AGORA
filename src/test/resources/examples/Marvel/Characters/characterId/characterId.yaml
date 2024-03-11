@@ -1,59 +1,56 @@
-openapi: 3.0.1
+swagger: "2.0"
 info:
-  title: Marvel Characters API
-  description: API for accessing detailed information about individual Marvel characters.
-  version: 1.0.0
-servers:
-  - url: 'http://gateway.marvel.com/v1/public'
+  title: "Marvel Characters API"
+  description: "API for accessing detailed information about individual Marvel characters."
+  version: "1.0.0"
+basePath: "/v1/public"
+schemes:
+  - "http"
 paths:
   /characters/{character_id}:
     get:
-      summary: Character by ID
-      description: Fetches a single character by ID.
-      operationId: characterId
+      summary: "Character by ID"
+      description: "Fetches a single character by ID."
+      operationId: "characterId"
       parameters:
-        - name: characterId
+        - name: character_id
           in: path
           required: true
-          schema:
-            type: string
-          description: The unique ID of the character to fetch.
+          type: string
+          description: "The unique ID of the character to fetch."
       responses:
         '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CharacterDataWrapper'
-components:
-  schemas:
-    CharacterDataWrapper:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            offset:
-              type: integer
-            limit:
-              type: integer
-            total:
-              type: integer
-            count:
-              type: integer
-            results:
-              type: array
-              items:
-                $ref: '#/components/schemas/Character'
-    Character:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: The unique ID of the character.
-        name:
-          type: string
-          description: The name of the character.
-        description:
-          type: string
-          description: A short bio or description of the character.
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/CharacterDataWrapper"
+definitions:
+  CharacterDataWrapper:
+    type: object
+    properties:
+      data:
+        type: object
+        properties:
+          offset:
+            type: integer
+          limit:
+            type: integer
+          total:
+            type: integer
+          count:
+            type: integer
+          results:
+            type: array
+            items:
+              $ref: "#/definitions/Character"
+  Character:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: "The unique ID of the character."
+      name:
+        type: string
+        description: "The name of the character."
+      description:
+        type: string
+        description: "A short bio or description of the character."
