@@ -1,0 +1,192 @@
+swagger: '2.0'
+info:
+  title: Marvel Characters API
+  description: API for accessing comic information related to Marvel characters.
+  version: 1.0.0
+host: gateway.marvel.com
+basePath: /v1/public
+schemes:
+  - http
+paths:
+  /characters/{character_id}/comics:
+    get:
+      summary: Character comics
+      description: Fetches lists of comics filtered by a character ID.
+      operationId: characterId/comics
+      produces:
+        - application/json
+      parameters:
+        - name: characterId
+          in: path
+          required: true
+          type: string
+          description: The character ID.
+        - name: format
+          in: query
+          required: false
+          type: string
+          description: Filter by the issue format (e.g., comic, digital comic, hardcover).
+        - name: formatType
+          in: query
+          required: false
+          type: string
+          description: Filter by the issue format type (comic or collection).
+        - name: noVariants
+          in: query
+          required: false
+          type: boolean
+          description: Exclude variant comics from the result set.
+        - name: dateDescriptor
+          in: query
+          required: false
+          type: string
+          description: Return comics within a predefined date range.
+        - name: dateRange
+          in: query
+          required: false
+          type: string
+          description: Return comics within a predefined date range. Dates must be specified as date1,date2.
+        - name: diamondCode
+          in: query
+          required: false
+          type: string
+          description: Filter by diamond code.
+        - name: digitalId
+          in: query
+          required: false
+          type: integer
+          description: Filter by digital comic ID.
+        - name: upc
+          in: query
+          required: false
+          type: string
+          description: Filter by UPC.
+        - name: isbn
+          in: query
+          required: false
+          type: string
+          description: Filter by ISBN.
+        - name: ean
+          in: query
+          required: false
+          type: string
+          description: Filter by EAN.
+        - name: issn
+          in: query
+          required: false
+          type: string
+          description: Filter by ISSN.
+        - name: hasDigitalIssue
+          in: query
+          required: false
+          type: boolean
+          description: Include only results which are available digitally.
+        - name: modifiedSince
+          in: query
+          required: false
+          type: string
+          description: Return only comics which have been modified since the specified date.
+        - name: creators
+          in: query
+          required: false
+          type: integer
+          description: Return only comics which feature work by the specified creators.
+        - name: series
+          in: query
+          required: false
+          type: integer
+          description: Return only comics which are part of the specified series.
+        - name: events
+          in: query
+          required: false
+          type: integer
+          description: Return only comics which take place in the specified events.
+        - name: stories
+          in: query
+          required: false
+          type: integer
+          description: Return only comics which contain the specified stories.
+        - name: sharedAppearances
+          in: query
+          required: false
+          type: integer
+          description: Return only comics in which the specified characters appear together.
+        - name: collaborators
+          in: query
+          required: false
+          type: integer
+          description: Return only comics in which the specified creators worked together.
+        - name: orderBy
+          in: query
+          required: false
+          type: string
+          description: Order the result set by a field or fields. Add a “-” to the value sort in descending order.
+        - name: limit
+          in: query
+          required: false
+          type: integer
+          description: Limit the result set to the specified number of resources.
+        - name: offset
+          in: query
+          required: false
+          type: integer
+          description: Skip the specified number of resources in the result set.
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/ComicDataWrapper'
+definitions:
+  ComicDataWrapper:
+    type: object
+    properties:
+      data:
+        type: object
+        properties:
+          results:
+            type: array
+            items:
+              $ref: '#/definitions/Comic'
+  Comic:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: The unique ID of the comic.
+      title:
+        type: string
+        description: The title of the comic.
+      issueNumber:
+        type: integer
+        description: The issue number of the comic.
+      variantDescription:
+        type: string
+        description: The variant description of the comic.
+      description:
+        type: string
+        description: A short bio or description of the comic.
+      modified:
+        type: string
+        format: date
+        description: The last modified date of the comic.
+      isbn:
+        type: string
+        description: The ISBN of the comic.
+      upc:
+        type: string
+        description: The UPC barcode number of the comic.
+      diamondCode:
+        type: string
+        description: The Diamond code of the comic.
+      ean:
+        type: string
+        description: The EAN barcode number of the comic.
+      issn:
+        type: string
+        description: The ISSN barcode number of the comic.
+      format:
+        type: string
+        description: The format of the comic.
+      pageCount:
+        type: integer
+        description: The number of pages of the comic.
