@@ -1,0 +1,48 @@
+swagger: "2.0"
+info:
+  title: "Pet Clinic API"
+  description: "API for managing pet owners in a pet clinic"
+  version: "1.0.0"
+basePath: "/petclinic/api"
+schemes:
+  - "http"
+paths:
+  /owners/{owner_id}:
+    get:
+      summary: "Get owner by ID"
+      description: "Retrieve information about a pet owner by their ID."
+      parameters:
+        - name: "ownerId"
+          in: "path"
+          description: "ID of the owner to retrieve"
+          required: true
+          type: "integer"
+          format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Owner"
+definitions:
+  Owner:
+    type: object
+    properties:
+      firstName:
+        type: string
+        description: "The first name of the owner."
+      lastName:
+        type: string
+        description: "The last name of the owner."
+      address:
+        type: string
+        description: "The address of the owner."
+      telephone:
+        type: string
+        description: "The telephone number of the owner."
+      id:
+        type: integer
+        format: int64
+        description: "The unique ID of the owner."
+      pets:
+        type: array
+        items: {}
