@@ -39,7 +39,6 @@ paths:
       summary: Adds a pet owner
       description: Records the details of a new pet owner.
       operationId: base
-      parameters: []
       responses:
         '201':
           description: The pet owner was successfully added.
@@ -163,27 +162,4 @@ definitions:
       city:
         type: string
       telephone:
-        type: string
-      pets:
-        type: array
-        items:
-          $ref: '#/definitions/Pet'
-  Pet:
-    type: object
-    properties:
-      # Define pet properties here as per your original specification
-      name:
-        type: string
-      type:
-        type: string
-      owner:
-        $ref: '#/definitions/Owner'
-      # Add other pet properties
-  Specialty:
-    type: object
-    properties:
-      id:
-        type: integer
-        format: int32
-      name:
         type: string
