@@ -1,17 +1,17 @@
 decl-version 2.0
 var-comparability implicit
 
-ppt /characters/{characterId}/stories:::CLASS
+ppt /characters/{character_id}/stories:::CLASS
 ppt-type class
 
-ppt /characters/{characterId}/stories&characterId/stories&200():::ENTER
+ppt /characters/{character_id}/stories&characterId/stories&200():::ENTER
 ppt-type enter
 variable input
 	var-kind variable
 	dec-type characterId/stories&Input
 	rep-type hashcode
-variable input.characterId
-	var-kind field characterId
+variable input.character_id
+	var-kind field character_id
 	enclosing-var input
 	dec-type java.lang.String
 	rep-type java.lang.String
@@ -56,14 +56,14 @@ variable input.offset
 	dec-type int
 	rep-type int
 
-ppt /characters/{characterId}/stories&characterId/stories&200&data&results():::ENTER
+ppt /characters/{character_id}/stories&characterId/stories&200&data&results():::ENTER
 ppt-type enter
 variable input
 	var-kind variable
 	dec-type characterId/stories&Input
 	rep-type hashcode
-variable input.characterId
-	var-kind field characterId
+variable input.character_id
+	var-kind field character_id
 	enclosing-var input
 	dec-type java.lang.String
 	rep-type java.lang.String
@@ -108,14 +108,14 @@ variable input.offset
 	dec-type int
 	rep-type int
 
-ppt /characters/{characterId}/stories&characterId/stories&200():::EXIT1
+ppt /characters/{character_id}/stories&characterId/stories&200():::EXIT1
 ppt-type subexit
 variable input
 	var-kind variable
 	dec-type characterId/stories&Input
 	rep-type hashcode
-variable input.characterId
-	var-kind field characterId
+variable input.character_id
+	var-kind field character_id
 	enclosing-var input
 	dec-type java.lang.String
 	rep-type java.lang.String
@@ -180,14 +180,14 @@ variable return.data.results[..]
 	dec-type results[]
 	rep-type hashcode[]
 
-ppt /characters/{characterId}/stories&characterId/stories&200&data&results():::EXIT2
+ppt /characters/{character_id}/stories&characterId/stories&200&data&results():::EXIT2
 ppt-type subexit
 variable input
 	var-kind variable
 	dec-type characterId/stories&Input
 	rep-type hashcode
-variable input.characterId
-	var-kind field characterId
+variable input.character_id
+	var-kind field character_id
 	enclosing-var input
 	dec-type java.lang.String
 	rep-type java.lang.String

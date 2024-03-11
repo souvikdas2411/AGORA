@@ -1,41 +1,41 @@
 decl-version 2.0
 var-comparability implicit
 
-ppt /characters/{characterId}:::CLASS
+ppt /characters/{character_id}:::CLASS
 ppt-type class
 
-ppt /characters/{characterId}&characterId&200():::ENTER
+ppt /characters/{character_id}&characterId&200():::ENTER
 ppt-type enter
 variable input
 	var-kind variable
 	dec-type characterId&Input
 	rep-type hashcode
-variable input.characterId
-	var-kind field characterId
+variable input.character_id
+	var-kind field character_id
 	enclosing-var input
 	dec-type java.lang.String
 	rep-type java.lang.String
 
-ppt /characters/{characterId}&characterId&200&data&results():::ENTER
+ppt /characters/{character_id}&characterId&200&data&results():::ENTER
 ppt-type enter
 variable input
 	var-kind variable
 	dec-type characterId&Input
 	rep-type hashcode
-variable input.characterId
-	var-kind field characterId
+variable input.character_id
+	var-kind field character_id
 	enclosing-var input
 	dec-type java.lang.String
 	rep-type java.lang.String
 
-ppt /characters/{characterId}&characterId&200():::EXIT1
+ppt /characters/{character_id}&characterId&200():::EXIT1
 ppt-type subexit
 variable input
 	var-kind variable
 	dec-type characterId&Input
 	rep-type hashcode
-variable input.characterId
-	var-kind field characterId
+variable input.character_id
+	var-kind field character_id
 	enclosing-var input
 	dec-type java.lang.String
 	rep-type java.lang.String
@@ -80,14 +80,14 @@ variable return.data.results[..]
 	dec-type results[]
 	rep-type hashcode[]
 
-ppt /characters/{characterId}&characterId&200&data&results():::EXIT2
+ppt /characters/{character_id}&characterId&200&data&results():::EXIT2
 ppt-type subexit
 variable input
 	var-kind variable
 	dec-type characterId&Input
 	rep-type hashcode
-variable input.characterId
-	var-kind field characterId
+variable input.character_id
+	var-kind field character_id
 	enclosing-var input
 	dec-type java.lang.String
 	rep-type java.lang.String

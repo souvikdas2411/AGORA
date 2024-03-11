@@ -1,10 +1,10 @@
 decl-version 2.0
 var-comparability implicit
 
-ppt /characters/{characterId}/comics:::CLASS
+ppt /characters/{character_id}/comics:::CLASS
 ppt-type class
 
-ppt /characters/{characterId}/comics&characterId/comics&200():::ENTER
+ppt /characters/{character_id}/comics&characterId/comics&200():::ENTER
 ppt-type enter
 variable input
 	var-kind variable
@@ -126,7 +126,7 @@ variable input.offset
 	dec-type int
 	rep-type int
 
-ppt /characters/{characterId}/comics&characterId/comics&200&data&results():::ENTER
+ppt /characters/{character_id}/comics&characterId/comics&200&data&results():::ENTER
 ppt-type enter
 variable input
 	var-kind variable
@@ -248,7 +248,7 @@ variable input.offset
 	dec-type int
 	rep-type int
 
-ppt /characters/{characterId}/comics&characterId/comics&200():::EXIT1
+ppt /characters/{character_id}/comics&characterId/comics&200():::EXIT1
 ppt-type subexit
 variable input
 	var-kind variable
@@ -390,7 +390,7 @@ variable return.data.results[..]
 	dec-type results[]
 	rep-type hashcode[]
 
-ppt /characters/{characterId}/comics&characterId/comics&200&data&results():::EXIT2
+ppt /characters/{character_id}/comics&characterId/comics&200&data&results():::EXIT2
 ppt-type subexit
 variable input
 	var-kind variable
