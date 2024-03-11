@@ -10,6 +10,7 @@ paths:
   /lang/{lang}:
     get:
       summary: Get countries by language
+      operationId: v3Lang
       parameters:
         - name: lang
           in: path

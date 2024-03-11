@@ -4,11 +4,11 @@ var-comparability implicit
 ppt /lang/{lang}:::CLASS
 ppt-type class
 
-ppt /lang/{lang}&/lang/{lang}&get&200%array():::ENTER
+ppt /lang/{lang}&v3Lang&200%array():::ENTER
 ppt-type enter
 variable input
 	var-kind variable
-	dec-type /lang/{lang}&get&Input
+	dec-type v3Lang&Input
 	rep-type hashcode
 variable input.lang
 	var-kind field lang
@@ -16,11 +16,11 @@ variable input.lang
 	dec-type java.lang.String
 	rep-type java.lang.String
 
-ppt /lang/{lang}&/lang/{lang}&get&200():::ENTER
+ppt /lang/{lang}&v3Lang&200():::ENTER
 ppt-type enter
 variable input
 	var-kind variable
-	dec-type /lang/{lang}&get&Input
+	dec-type v3Lang&Input
 	rep-type hashcode
 variable input.lang
 	var-kind field lang
@@ -28,11 +28,11 @@ variable input.lang
 	dec-type java.lang.String
 	rep-type java.lang.String
 
-ppt /lang/{lang}&/lang/{lang}&get&200%array():::EXIT1
+ppt /lang/{lang}&v3Lang&200%array():::EXIT1
 ppt-type subexit
 variable input
 	var-kind variable
-	dec-type /lang/{lang}&get&Input
+	dec-type v3Lang&Input
 	rep-type hashcode
 variable input.lang
 	var-kind field lang
@@ -41,7 +41,7 @@ variable input.lang
 	rep-type java.lang.String
 variable return
 	var-kind return
-	dec-type /lang/{lang}&get&Output&200%array
+	dec-type v3Lang&Output&200%array
 	rep-type hashcode
 variable return.array
 	var-kind field array
@@ -55,11 +55,11 @@ variable return.array[..]
 	dec-type array[]
 	rep-type hashcode[]
 
-ppt /lang/{lang}&/lang/{lang}&get&200():::EXIT2
+ppt /lang/{lang}&v3Lang&200():::EXIT2
 ppt-type subexit
 variable input
 	var-kind variable
-	dec-type /lang/{lang}&get&Input
+	dec-type v3Lang&Input
 	rep-type hashcode
 variable input.lang
 	var-kind field lang
@@ -68,12 +68,12 @@ variable input.lang
 	rep-type java.lang.String
 variable return
 	var-kind return
-	dec-type /lang/{lang}&get&Output&200
+	dec-type v3Lang&Output&200
 	rep-type hashcode
 variable return.name
 	var-kind field name
 	enclosing-var return
-	dec-type /lang/{lang}&get&Output&200&name
+	dec-type v3Lang&Output&200&name
 	rep-type hashcode
 variable return.name.common
 	var-kind field common
@@ -88,7 +88,7 @@ variable return.name.official
 variable return.name.nativeName
 	var-kind field nativeName
 	enclosing-var return.name
-	dec-type /lang/{lang}&get&Output&200&nativeName
+	dec-type v3Lang&Output&200&nativeName
 	rep-type hashcode
 variable return.tld
 	var-kind field tld
@@ -139,12 +139,12 @@ variable return.unMember
 variable return.currencies
 	var-kind field currencies
 	enclosing-var return
-	dec-type /lang/{lang}&get&Output&200&currencies
+	dec-type v3Lang&Output&200&currencies
 	rep-type hashcode
 variable return.idd
 	var-kind field idd
 	enclosing-var return
-	dec-type /lang/{lang}&get&Output&200&idd
+	dec-type v3Lang&Output&200&idd
 	rep-type hashcode
 variable return.idd.root
 	var-kind field root
@@ -197,12 +197,12 @@ variable return.subregion
 variable return.languages
 	var-kind field languages
 	enclosing-var return
-	dec-type /lang/{lang}&get&Output&200&languages
+	dec-type v3Lang&Output&200&languages
 	rep-type hashcode
 variable return.translations
 	var-kind field translations
 	enclosing-var return
-	dec-type /lang/{lang}&get&Output&200&translations
+	dec-type v3Lang&Output&200&translations
 	rep-type hashcode
 variable return.latlng
 	var-kind field latlng
@@ -239,7 +239,7 @@ variable return.area
 variable return.demonyms
 	var-kind field demonyms
 	enclosing-var return
-	dec-type /lang/{lang}&get&Output&200&demonyms
+	dec-type v3Lang&Output&200&demonyms
 	rep-type hashcode
 variable return.flag
 	var-kind field flag
@@ -249,7 +249,7 @@ variable return.flag
 variable return.maps
 	var-kind field maps
 	enclosing-var return
-	dec-type /lang/{lang}&get&Output&200&maps
+	dec-type v3Lang&Output&200&maps
 	rep-type hashcode
 variable return.maps.googleMaps
 	var-kind field googleMaps
@@ -269,7 +269,7 @@ variable return.population
 variable return.gini
 	var-kind field gini
 	enclosing-var return
-	dec-type /lang/{lang}&get&Output&200&gini
+	dec-type v3Lang&Output&200&gini
 	rep-type hashcode
 variable return.fifa
 	var-kind field fifa
@@ -279,7 +279,7 @@ variable return.fifa
 variable return.car
 	var-kind field car
 	enclosing-var return
-	dec-type /lang/{lang}&get&Output&200&car
+	dec-type v3Lang&Output&200&car
 	rep-type hashcode
 variable return.car.signs
 	var-kind field signs
@@ -322,7 +322,7 @@ variable return.continents[..]
 variable return.flags
 	var-kind field flags
 	enclosing-var return
-	dec-type /lang/{lang}&get&Output&200&flags
+	dec-type v3Lang&Output&200&flags
 	rep-type hashcode
 variable return.flags.png
 	var-kind field png
@@ -342,7 +342,7 @@ variable return.flags.alt
 variable return.coatOfArms
 	var-kind field coatOfArms
 	enclosing-var return
-	dec-type /lang/{lang}&get&Output&200&coatOfArms
+	dec-type v3Lang&Output&200&coatOfArms
 	rep-type hashcode
 variable return.coatOfArms.png
 	var-kind field png
@@ -362,7 +362,7 @@ variable return.startOfWeek
 variable return.capitalInfo
 	var-kind field capitalInfo
 	enclosing-var return
-	dec-type /lang/{lang}&get&Output&200&capitalInfo
+	dec-type v3Lang&Output&200&capitalInfo
 	rep-type hashcode
 variable return.capitalInfo.latlng
 	var-kind field latlng
@@ -378,7 +378,7 @@ variable return.capitalInfo.latlng[..]
 variable return.postalCode
 	var-kind field postalCode
 	enclosing-var return
-	dec-type /lang/{lang}&get&Output&200&postalCode
+	dec-type v3Lang&Output&200&postalCode
 	rep-type hashcode
 variable return.postalCode.format
 	var-kind field format
