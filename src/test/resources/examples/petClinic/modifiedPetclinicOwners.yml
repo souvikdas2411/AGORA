@@ -38,7 +38,7 @@ paths:
         - owner
       summary: Adds a pet owner
       description: Records the details of a new pet owner.
-      operationId: addOwner
+      operationId: base
       parameters: []
       responses:
         '201':
