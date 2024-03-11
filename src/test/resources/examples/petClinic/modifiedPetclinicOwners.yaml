@@ -1,74 +1,95 @@
 swagger: "2.0"
 info:
-  title: "Pet Clinic API"
-  description: "API for managing pet owners in a pet clinic"
+  title: "PetClinic API"
+  description: "This is the API for the PetClinic service which allows management of pet owners, pets, and visits."
   version: "1.0.0"
+host: "localhost:9966"
 basePath: "/petclinic/api"
 schemes:
   - "http"
 paths:
   /owners:
     post:
-      summary: "Create a new pet owner"
+      summary: "Create a new owner"
+      description: "Adds a new owner to the PetClinic system."
       operationId: base
-      description: "Endpoint to create a new pet owner."
       consumes:
         - "application/json"
       produces:
         - "application/json"
       parameters:
         - in: body
-          name: body
-          description: "Pet owner object to be created"
+          name: owner
+          description: "Owner object that needs to be added to the system"
           required: true
           schema:
-            $ref: "#/definitions/OwnerInput"
+            type: object
+            required:
+              - firstName
+              - lastName
+              - address
+              - telephone
+            properties:
+              firstName:
+                type: string
+                example: "John"
+              lastName:
+                type: string
+                example: "Doe"
+              address:
+                type: string
+                example: "123 Bark St"
+              city:
+                type: string
+                example: "Dogtown"
+              telephone:
+                type: string
+                example: "555-1234"
       responses:
         201:
-          description: "Successful creation of pet owner"
+          description: "Owner created successfully"
           schema:
-            $ref: "#/definitions/Owner"
+            type: object
+            required:
+              - firstName
+              - lastName
+              - address
+              - telephone
+              - id
+            properties:
+              firstName:
+                type: string
+              lastName:
+                type: string
+              address:
+                type: string
+              city:
+                type: string
+              telephone:
+                type: string
+              id:
+                type: integer
+                description: "Unique identifier for the owner"
+              pets:
+                type: array
+                items:
+                  type: object
+                  required: []
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    birthDate:
+                      type: string
+                      format: "date"
+                    type:
+                      $ref: "#/definitions/PetType"
 definitions:
-  OwnerInput:
+  PetType:
     type: object
     properties:
-      firstName:
-        type: string
-        description: "The first name of the owner."
-      lastName:
-        type: string
-        description: "The last name of the owner."
-      address:
-        type: string
-        description: "The address of the owner."
-      city:
-        type: string
-        description: "The city of the owner."
-      telephone:
-        type: string
-        description: "The telephone number of the owner."
-  Owner:
-    type: object
-    properties:
-      firstName:
-        type: string
-        description: "The first name of the owner."
-      lastName:
-        type: string
-        description: "The last name of the owner."
-      address:
-        type: string
-        description: "The address of the owner."
-      city:
-        type: string
-        description: "The city of the owner."
-      telephone:
-        type: string
-        description: "The telephone number of the owner."
       id:
         type: integer
-        format: int64
-        description: "The unique ID of the owner."
-      pets:
-        type: array
-        items: {}
+      name:
+        type: string
