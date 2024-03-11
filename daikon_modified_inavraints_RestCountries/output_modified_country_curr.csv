@@ -1,0 +1,426 @@
+Daikon version 5.8.10, released November 1, 2021; http://plse.cs.washington.edu/daikon.
+Reading declaration files .(read 1 decls file)
+Processing trace data; reading 1 dtrace file:
+
+===========================================================================
+/currency/{code}&/currency/{code}&get&200%array():::ENTER
+input != null
+===========================================================================
+/currency/{code}&/currency/{code}&get&200%array():::EXIT
+input == orig(input)
+input.currency == orig(input.currency)
+input != null
+return != null
+return.array != null
+return.array[] elements != null
+size(return.array[]) >= 1
+===========================================================================
+/currency/{code}&/currency/{code}&get&200():::ENTER
+input != null
+===========================================================================
+/currency/{code}&/currency/{code}&get&200():::EXIT
+input == orig(input)
+input.currency == orig(input.currency)
+size(return.latlng[]) == size(return.capitalInfo.latlng[])
+input != null
+return != null
+return.name != null
+return.name.nativeName != null
+return.status one of { "officially-assigned", "user-assigned" }
+return.currencies != null
+return.idd != null
+return.idd.suffixes != null
+return.altSpellings != null
+return.languages != null
+return.translations != null
+return.latlng != null
+return.demonyms != null
+return.maps != null
+return.car != null
+return.car.side one of { "left", "right" }
+return.timezones != null
+return.continents != null
+return.flags != null
+return.coatOfArms != null
+return.startOfWeek one of { "monday", "saturday", "sunday" }
+return.capitalInfo != null
+size(return.idd.suffixes[]) >= 1
+size(return.capital[]) one of { 1, 2, 3 }
+size(return.altSpellings[]) >= 1
+size(return.latlng[]) == 2
+size(return.borders[]) >= 1
+size(return.car.signs[]) one of { 1, 2 }
+size(return.timezones[]) >= 1
+size(return.continents[]) one of { 1, 2 }
+size(return.capitalInfo.latlng[]) == 2
+input.currency != return.name.common
+input.currency != return.name.official
+input.currency != return.cca2
+input.currency > return.ccn3
+input.currency < return.status
+input.currency > return.idd.root
+input.currency != return.region
+input.currency != return.subregion
+input.currency < return.flag
+input.currency < return.maps.googleMaps
+input.currency < return.maps.openStreetMaps
+input.currency < return.car.side
+input.currency < return.flags.png
+input.currency < return.flags.svg
+input.currency != return.flags.alt
+input.currency < return.coatOfArms.png
+input.currency < return.coatOfArms.svg
+input.currency < return.startOfWeek
+input.currency != return.postalCode.format
+input.currency < return.postalCode.regex
+return.name.common != return.cca2
+return.name.common > return.ccn3
+return.name.common != return.cca3
+return.name.common != return.cioc
+return.name.common != return.status
+return.name.common > return.idd.root
+return.name.common != return.region
+return.name.common < return.flag
+return.name.common != return.maps.googleMaps
+return.name.common != return.maps.openStreetMaps
+return.name.common != return.fifa
+return.name.common != return.car.side
+return.name.common != return.flags.png
+return.name.common != return.flags.svg
+return.name.common != return.flags.alt
+return.name.common != return.coatOfArms.png
+return.name.common != return.coatOfArms.svg
+return.name.common != return.startOfWeek
+return.name.common != return.postalCode.format
+return.name.common < return.postalCode.regex
+return.name.official != return.cca2
+return.name.official > return.ccn3
+return.name.official != return.cca3
+return.name.official != return.cioc
+return.name.official != return.status
+return.name.official > return.idd.root
+return.name.official != return.region
+return.name.official != return.subregion
+return.name.official < return.flag
+return.name.official != return.maps.googleMaps
+return.name.official != return.maps.openStreetMaps
+return.name.official != return.fifa
+return.name.official != return.car.side
+return.name.official != return.flags.png
+return.name.official != return.flags.svg
+return.name.official != return.flags.alt
+return.name.official != return.coatOfArms.png
+return.name.official != return.coatOfArms.svg
+return.name.official != return.startOfWeek
+return.name.official != return.postalCode.format
+return.name.official < return.postalCode.regex
+return.tld[] < return.capital[] (lexically)
+return.tld[] <= return.capital[] (lexically)
+return.tld[] < return.altSpellings[] (lexically)
+return.tld[] <= return.altSpellings[] (lexically)
+return.tld[] < return.borders[] (lexically)
+return.tld[] <= return.borders[] (lexically)
+return.tld[] < return.timezones[] (lexically)
+return.tld[] <= return.timezones[] (lexically)
+return.tld[] < return.continents[] (lexically)
+return.tld[] <= return.continents[] (lexically)
+return.cca2 > return.ccn3
+return.cca2 != return.cca3
+return.cca2 != return.cioc
+return.cca2 < return.status
+return.cca2 > return.idd.root
+return.cca2 != return.region
+return.cca2 != return.subregion
+return.cca2 < return.flag
+return.cca2 < return.maps.googleMaps
+return.cca2 < return.maps.openStreetMaps
+return.cca2 != return.fifa
+return.cca2 < return.car.side
+return.cca2 < return.flags.png
+return.cca2 < return.flags.svg
+return.cca2 != return.flags.alt
+return.cca2 < return.coatOfArms.png
+return.cca2 < return.coatOfArms.svg
+return.cca2 < return.startOfWeek
+return.cca2 != return.postalCode.format
+return.cca2 < return.postalCode.regex
+return.ccn3 < return.cca3
+return.ccn3 < return.cioc
+return.ccn3 < return.status
+return.ccn3 > return.idd.root
+return.ccn3 < return.region
+return.ccn3 < return.subregion
+return.ccn3 < return.flag
+return.ccn3 < return.maps.googleMaps
+return.ccn3 < return.maps.openStreetMaps
+return.ccn3 < return.fifa
+return.ccn3 < return.car.side
+return.ccn3 < return.flags.png
+return.ccn3 < return.flags.svg
+return.ccn3 < return.flags.alt
+return.ccn3 < return.coatOfArms.png
+return.ccn3 < return.coatOfArms.svg
+return.ccn3 < return.startOfWeek
+return.ccn3 != return.postalCode.format
+return.ccn3 < return.postalCode.regex
+return.cca3 < return.status
+return.cca3 > return.idd.root
+return.cca3 != return.region
+return.cca3 != return.subregion
+return.cca3 < return.flag
+return.cca3 < return.maps.googleMaps
+return.cca3 < return.maps.openStreetMaps
+return.cca3 < return.car.side
+return.cca3 < return.flags.png
+return.cca3 < return.flags.svg
+return.cca3 != return.flags.alt
+return.cca3 < return.coatOfArms.png
+return.cca3 < return.coatOfArms.svg
+return.cca3 < return.startOfWeek
+return.cca3 != return.postalCode.format
+return.cca3 < return.postalCode.regex
+return.cioc < return.status
+return.cioc > return.idd.root
+return.cioc != return.region
+return.cioc != return.subregion
+return.cioc < return.flag
+return.cioc < return.maps.googleMaps
+return.cioc < return.maps.openStreetMaps
+return.cioc < return.car.side
+return.cioc < return.flags.png
+return.cioc < return.flags.svg
+return.cioc != return.flags.alt
+return.cioc < return.coatOfArms.png
+return.cioc < return.coatOfArms.svg
+return.cioc < return.startOfWeek
+return.cioc != return.postalCode.format
+return.cioc < return.postalCode.regex
+return.status > return.idd.root
+return.status > return.region
+return.status > return.subregion
+return.status < return.flag
+return.status > return.maps.googleMaps
+return.status != return.maps.openStreetMaps
+return.status > return.fifa
+return.status != return.car.side
+return.status > return.flags.png
+return.status > return.flags.svg
+return.status > return.flags.alt
+return.status > return.coatOfArms.png
+return.status > return.coatOfArms.svg
+return.status != return.startOfWeek
+return.status > return.postalCode.format
+return.status > return.postalCode.regex
+return.idd.root < return.region
+return.idd.root < return.subregion
+return.idd.root < return.flag
+return.idd.root < return.maps.googleMaps
+return.idd.root < return.maps.openStreetMaps
+return.idd.root < return.fifa
+return.idd.root < return.car.side
+return.idd.root < return.flags.png
+return.idd.root < return.flags.svg
+return.idd.root < return.flags.alt
+return.idd.root < return.coatOfArms.png
+return.idd.root < return.coatOfArms.svg
+return.idd.root < return.startOfWeek
+return.idd.root != return.postalCode.format
+return.idd.root < return.postalCode.regex
+return.idd.suffixes[] < return.capital[] (lexically)
+return.idd.suffixes[] <= return.capital[] (lexically)
+return.idd.suffixes[] < return.altSpellings[] (lexically)
+return.idd.suffixes[] <= return.altSpellings[] (lexically)
+return.idd.suffixes[] < return.borders[] (lexically)
+return.idd.suffixes[] <= return.borders[] (lexically)
+return.idd.suffixes[] < return.timezones[] (lexically)
+return.idd.suffixes[] <= return.timezones[] (lexically)
+return.idd.suffixes[] < return.continents[] (lexically)
+return.idd.suffixes[] <= return.continents[] (lexically)
+return.region != return.subregion
+return.region < return.flag
+return.region < return.maps.googleMaps
+return.region < return.maps.openStreetMaps
+return.region != return.fifa
+return.region < return.car.side
+return.region < return.flags.png
+return.region < return.flags.svg
+return.region < return.flags.alt
+return.region < return.coatOfArms.png
+return.region < return.coatOfArms.svg
+return.region < return.startOfWeek
+return.region != return.postalCode.format
+return.region < return.postalCode.regex
+return.subregion < return.flag
+return.subregion < return.maps.googleMaps
+return.subregion < return.maps.openStreetMaps
+return.subregion != return.fifa
+return.subregion < return.car.side
+return.subregion < return.flags.png
+return.subregion < return.flags.svg
+return.subregion != return.flags.alt
+return.subregion < return.coatOfArms.png
+return.subregion < return.coatOfArms.svg
+return.subregion < return.startOfWeek
+return.subregion != return.postalCode.format
+return.subregion < return.postalCode.regex
+return.flag > return.maps.googleMaps
+return.flag > return.maps.openStreetMaps
+return.flag > return.fifa
+return.flag > return.car.side
+return.flag > return.flags.png
+return.flag > return.flags.svg
+return.flag > return.flags.alt
+return.flag > return.coatOfArms.png
+return.flag > return.coatOfArms.svg
+return.flag > return.startOfWeek
+return.flag > return.postalCode.format
+return.flag > return.postalCode.regex
+return.maps.googleMaps <= return.maps.openStreetMaps
+return.maps.googleMaps > return.fifa
+return.maps.googleMaps < return.car.side
+return.maps.googleMaps != return.flags.png
+return.maps.googleMaps != return.flags.svg
+return.maps.googleMaps > return.flags.alt
+return.maps.googleMaps != return.coatOfArms.png
+return.maps.googleMaps != return.coatOfArms.svg
+return.maps.googleMaps < return.startOfWeek
+return.maps.googleMaps > return.postalCode.format
+return.maps.googleMaps > return.postalCode.regex
+return.maps.openStreetMaps > return.fifa
+return.maps.openStreetMaps < return.car.side
+return.maps.openStreetMaps > return.flags.png
+return.maps.openStreetMaps > return.flags.svg
+return.maps.openStreetMaps > return.flags.alt
+return.maps.openStreetMaps != return.coatOfArms.png
+return.maps.openStreetMaps != return.coatOfArms.svg
+return.maps.openStreetMaps != return.startOfWeek
+return.maps.openStreetMaps > return.postalCode.format
+return.maps.openStreetMaps > return.postalCode.regex
+return.population > size(return.tld[])
+return.population > size(return.idd.suffixes[])
+return.population > size(return.capital[])
+return.population > size(return.altSpellings[])
+return.population > size(return.latlng[])
+return.population > size(return.borders[])
+return.population > size(return.car.signs[])
+return.population > size(return.timezones[])
+return.population > size(return.continents[])
+return.population > size(return.capitalInfo.latlng[])
+return.fifa < return.car.side
+return.fifa < return.flags.png
+return.fifa < return.flags.svg
+return.fifa != return.flags.alt
+return.fifa < return.coatOfArms.png
+return.fifa < return.coatOfArms.svg
+return.fifa < return.startOfWeek
+return.fifa != return.postalCode.format
+return.fifa < return.postalCode.regex
+return.car.side > return.flags.png
+return.car.side > return.flags.svg
+return.car.side > return.flags.alt
+return.car.side > return.coatOfArms.png
+return.car.side > return.coatOfArms.svg
+return.car.side != return.startOfWeek
+return.car.side > return.postalCode.format
+return.car.side > return.postalCode.regex
+return.timezones[] > return.continents[] (lexically)
+return.timezones[] >= return.continents[] (lexically)
+return.flags.png != return.flags.svg
+return.flags.png > return.flags.alt
+return.flags.png != return.coatOfArms.png
+return.flags.png != return.coatOfArms.svg
+return.flags.png < return.startOfWeek
+return.flags.png > return.postalCode.format
+return.flags.png > return.postalCode.regex
+return.flags.svg > return.flags.alt
+return.flags.svg != return.coatOfArms.png
+return.flags.svg != return.coatOfArms.svg
+return.flags.svg < return.startOfWeek
+return.flags.svg > return.postalCode.format
+return.flags.svg > return.postalCode.regex
+return.flags.alt < return.coatOfArms.png
+return.flags.alt < return.coatOfArms.svg
+return.flags.alt < return.startOfWeek
+return.flags.alt > return.postalCode.format
+return.flags.alt < return.postalCode.regex
+return.coatOfArms.png < return.coatOfArms.svg
+return.coatOfArms.png < return.startOfWeek
+return.coatOfArms.png > return.postalCode.format
+return.coatOfArms.png > return.postalCode.regex
+return.coatOfArms.svg < return.startOfWeek
+return.coatOfArms.svg > return.postalCode.format
+return.coatOfArms.svg > return.postalCode.regex
+return.startOfWeek > return.postalCode.format
+return.startOfWeek > return.postalCode.regex
+return.postalCode.format < return.postalCode.regex
+size(return.tld[]) != size(return.capital[])-1
+size(return.tld[]) >= size(return.latlng[])-1
+size(return.car.signs[])-1 % size(return.tld[]) == 0
+size(return.tld[]) >= size(return.car.signs[])-1
+size(return.tld[]) >= size(return.continents[])-1
+size(return.tld[]) >= size(return.capitalInfo.latlng[])-1
+size(return.tld[])-1 <= size(return.altSpellings[])
+size(return.tld[])-1 % size(return.car.signs[]) == 0
+size(return.tld[])-1 % size(return.continents[]) == 0
+size(return.capital[])-1 % size(return.idd.suffixes[]) == 0
+size(return.idd.suffixes[]) >= size(return.latlng[])-1
+size(return.car.signs[])-1 % size(return.idd.suffixes[]) == 0
+size(return.idd.suffixes[]) >= size(return.car.signs[])-1
+size(return.idd.suffixes[]) >= size(return.continents[])-1
+size(return.idd.suffixes[]) >= size(return.capitalInfo.latlng[])-1
+size(return.idd.suffixes[])-1 % size(return.capital[]) == 0
+size(return.idd.suffixes[])-1 != size(return.altSpellings[])
+size(return.idd.suffixes[])-1 % size(return.car.signs[]) == 0
+size(return.idd.suffixes[])-1 % size(return.continents[]) == 0
+size(return.capital[]) <= size(return.altSpellings[])
+size(return.capital[]) >= size(return.latlng[])-1
+size(return.capital[]) <= size(return.borders[])
+size(return.capital[]) >= size(return.car.signs[])-1
+size(return.car.signs[])-1 % size(return.capital[]) == 0
+size(return.timezones[])-1 % size(return.capital[]) == 0
+size(return.capital[]) >= size(return.continents[])-1
+size(return.continents[])-1 % size(return.capital[]) == 0
+size(return.capital[]) >= size(return.capitalInfo.latlng[])-1
+size(return.capital[])-1 <= size(return.altSpellings[])-1
+size(return.capital[])-1 <= size(return.latlng[])
+size(return.capital[])-1 <= size(return.borders[])-1
+size(return.capital[])-1 % size(return.car.signs[]) == 0
+size(return.capital[])-1 % size(return.timezones[]) == 0
+size(return.capital[])-1 % size(return.continents[]) == 0
+size(return.capital[])-1 <= size(return.capitalInfo.latlng[])
+size(return.altSpellings[]) >= size(return.latlng[])-1
+size(return.altSpellings[]) % size(return.car.signs[]) == 0
+size(return.altSpellings[]) >= size(return.car.signs[])
+size(return.altSpellings[]) >= size(return.continents[])
+size(return.altSpellings[]) >= size(return.capitalInfo.latlng[])-1
+size(return.altSpellings[])-1 >= size(return.car.signs[])-1
+size(return.altSpellings[])-1 >= size(return.continents[])-1
+size(return.latlng[]) >= size(return.car.signs[])
+size(return.latlng[]) >= size(return.continents[])
+size(return.latlng[])-1 <= size(return.borders[])
+size(return.latlng[])-1 <= size(return.car.signs[])
+size(return.latlng[])-1 >= size(return.car.signs[])-1
+size(return.latlng[])-1 <= size(return.timezones[])
+size(return.latlng[])-1 <= size(return.continents[])
+size(return.latlng[])-1 >= size(return.continents[])-1
+size(return.borders[]) % size(return.car.signs[]) == 0
+size(return.borders[]) >= size(return.car.signs[])
+size(return.borders[]) >= size(return.continents[])
+size(return.borders[]) >= size(return.capitalInfo.latlng[])-1
+size(return.borders[])-1 >= size(return.car.signs[])-1
+size(return.borders[])-1 >= size(return.continents[])-1
+size(return.timezones[])-1 % size(return.car.signs[]) == 0
+size(return.car.signs[]) >= size(return.continents[])-1
+size(return.car.signs[]) <= size(return.capitalInfo.latlng[])
+size(return.car.signs[]) >= size(return.capitalInfo.latlng[])-1
+size(return.car.signs[])-1 % size(return.timezones[]) == 0
+size(return.car.signs[])-1 <= size(return.timezones[])
+size(return.car.signs[])-1 <= size(return.continents[])
+size(return.car.signs[])-1 <= size(return.capitalInfo.latlng[])-1
+size(return.timezones[]) >= size(return.continents[])-1
+size(return.timezones[]) >= size(return.capitalInfo.latlng[])-1
+size(return.timezones[])-1 % size(return.continents[]) == 0
+size(return.continents[]) <= size(return.capitalInfo.latlng[])
+size(return.continents[]) >= size(return.capitalInfo.latlng[])-1
+size(return.continents[])-1 <= size(return.capitalInfo.latlng[])-1
+Exiting Daikon.

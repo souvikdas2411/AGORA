@@ -1,0 +1,83 @@
+swagger: "2.0"
+info:
+  title: "Marvel Characters API"
+  description: "API for accessing story information related to Marvel characters."
+  version: "1.0.0"
+basePath: "/v1/public"
+schemes:
+  - "http"
+paths:
+  /characters/{character_id}/stories:
+    get:
+      summary: "Character stories"
+      description: "Fetches lists of stories filtered by a character ID."
+      operationId: "characterId/stories"
+      parameters:
+        - name: character_id
+          in: path
+          required: true
+          type: string
+          description: "The character ID."
+        - name: modifiedSince
+          in: query
+          type: string
+          description: "Return only stories which have been modified since the specified date."
+        - name: comics
+          in: query
+          type: string
+          description: "Return only stories contained in the specified comics (accepts a comma-separated list of ids)."
+        - name: series
+          in: query
+          type: string
+          description: "Return only stories contained in the specified series (accepts a comma-separated list of ids)."
+        - name: events
+          in: query
+          type: string
+          description: "Return only stories which take place during the specified events (accepts a comma-separated list of ids)."
+        - name: creators
+          in: query
+          type: string
+          description: "Return only stories which feature work by the specified creators (accepts a comma-separated list of ids)."
+        - name: orderBy
+          in: query
+          type: string
+          description: "Order the result set by a field or fields. Add a '-' to the value sort in descending order. Multiple values are given priority in the order in which they are passed."
+        - name: limit
+          in: query
+          type: integer
+          description: "Limit the result set to the specified number of resources."
+        - name: offset
+          in: query
+          type: integer
+          description: "Skip the specified number of resources in the result set."
+      responses:
+        '200':
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/StoryDataWrapper"
+definitions:
+  StoryDataWrapper:
+    type: object
+    properties:
+      data:
+        type: object
+        properties:
+          results:
+            type: array
+            items:
+              $ref: "#/definitions/Story"
+  Story:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: "The unique ID of the story."
+      title:
+        type: string
+        description: "The title of the story."
+      description:
+        type: string
+        description: "A short bio or description of the story."
+      type:
+        type: string
+        description: "The type of the story (e.g., cover, interior story)."
