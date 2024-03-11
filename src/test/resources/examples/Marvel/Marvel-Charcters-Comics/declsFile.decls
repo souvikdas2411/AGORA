@@ -83,33 +83,33 @@ variable input.modifiedSince
 variable input.creators
 	var-kind field creators
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.series
 	var-kind field series
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.events
 	var-kind field events
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.stories
 	var-kind field stories
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.sharedAppearances
 	var-kind field sharedAppearances
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.collaborators
 	var-kind field collaborators
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.orderBy
 	var-kind field orderBy
 	enclosing-var input
@@ -205,33 +205,33 @@ variable input.modifiedSince
 variable input.creators
 	var-kind field creators
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.series
 	var-kind field series
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.events
 	var-kind field events
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.stories
 	var-kind field stories
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.sharedAppearances
 	var-kind field sharedAppearances
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.collaborators
 	var-kind field collaborators
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.orderBy
 	var-kind field orderBy
 	enclosing-var input
@@ -327,33 +327,33 @@ variable input.modifiedSince
 variable input.creators
 	var-kind field creators
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.series
 	var-kind field series
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.events
 	var-kind field events
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.stories
 	var-kind field stories
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.sharedAppearances
 	var-kind field sharedAppearances
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.collaborators
 	var-kind field collaborators
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.orderBy
 	var-kind field orderBy
 	enclosing-var input
@@ -469,33 +469,33 @@ variable input.modifiedSince
 variable input.creators
 	var-kind field creators
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.series
 	var-kind field series
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.events
 	var-kind field events
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.stories
 	var-kind field stories
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.sharedAppearances
 	var-kind field sharedAppearances
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.collaborators
 	var-kind field collaborators
 	enclosing-var input
-	dec-type java.lang.String
-	rep-type java.lang.String
+	dec-type int
+	rep-type int
 variable input.orderBy
 	var-kind field orderBy
 	enclosing-var input
