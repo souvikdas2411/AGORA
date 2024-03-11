@@ -1,0 +1,201 @@
+swagger: '2.0'
+info:
+  version: '1.0.0'
+  title: Country Information API
+  description: API to retrieve country details based on currency code.
+host: restcountries.com
+basePath: /v3.1
+schemes:
+  - https
+paths:
+  /currency/{currency}:
+    get:
+      summary: Get country information by currency code
+      operationId: v3Currency
+      produces:
+        - application/json
+      parameters:
+        - name: currency
+          in: path
+          description: Currency code to fetch country information
+          required: true
+          type: string
+      responses:
+        '200':
+          description: An array of countries
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Country'
+        '404':
+          description: Currency not found
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+definitions:
+  Country:
+    type: object
+    properties:
+      name:
+        type: object
+        properties:
+          common:
+            type: string
+          official:
+            type: string
+          nativeName:
+            type: object
+            additionalProperties:
+              type: object
+              properties:
+                official:
+                  type: string
+                common:
+                  type: string
+      tld:
+        type: array
+        items:
+          type: string
+      cca2:
+        type: string
+      ccn3:
+        type: string
+      cca3:
+        type: string
+      cioc:
+        type: string
+      independent:
+        type: boolean
+      status:
+        type: string
+      unMember:
+        type: boolean
+      currencies:
+        type: object
+        additionalProperties:
+          type: object
+          properties:
+            name:
+              type: string
+            symbol:
+              type: string
+      idd:
+        type: object
+        properties:
+          root:
+            type: string
+          suffixes:
+            type: array
+            items:
+              type: string
+      capital:
+        type: array
+        items:
+          type: string
+      altSpellings:
+        type: array
+        items:
+          type: string
+      region:
+        type: string
+      subregion:
+        type: string
+      languages:
+        type: object
+        additionalProperties:
+          type: string
+      translations:
+        type: object
+        additionalProperties:
+          type: object
+          properties:
+            official:
+              type: string
+            common:
+              type: string
+      latlng:
+        type: array
+        items:
+          type: number
+      landlocked:
+        type: boolean
+      borders:
+        type: array
+        items:
+          type: string
+      area:
+        type: number
+      demonyms:
+        type: object
+        additionalProperties:
+          type: object
+          properties:
+            f:
+              type: string
+            m:
+              type: string
+      flag:
+        type: string
+      maps:
+        type: object
+        properties:
+          googleMaps:
+            type: string
+          openStreetMaps:
+            type: string
+      population:
+        type: number
+      gini:
+        type: object
+        additionalProperties:
+          type: number
+      fifa:
+        type: string
+      car:
+        type: object
+        properties:
+          signs:
+            type: array
+            items:
+              type: string
+          side:
+            type: string
+      timezones:
+        type: array
+        items:
+          type: string
+      continents:
+        type: array
+        items:
+          type: string
+      flags:
+        type: object
+        properties:
+          png:
+            type: string
+          svg:
+            type: string
+          alt:
+            type: string
+      coatOfArms:
+        type: object
+        properties:
+          png:
+            type: string
+          svg:
+            type: string
+      startOfWeek:
+        type: string
+      capitalInfo:
+        type: object
+        properties:
+          latlng:
+            type: array
+            items:
+              type: number
+  ErrorResponse:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
