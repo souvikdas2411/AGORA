@@ -3,48 +3,49 @@ import csv
 import json
 
 # Define base URL and endpoint
-base_url = 'http://localhost:9966/petclinic/api'
-endpoint = '/owners'
+base_url = 'https://restcountries.com/v3.1'
+endpoint = '/lang/{lang}'
+
+# Sample lang codes
+lang_codes = [
+    "Afrikaans"
+]
 
 # Function to send request and handle response
-def add_owner(data):
-    url = f'{base_url}{endpoint}'
-    headers = {'accept': 'application/json', 'Content-Type': 'application/json'}
-    response = requests.post(url, headers=headers, json=data)
-    return response.json(), response.status_code
+def get_country_info(lang_code):
+    url = f'{base_url}{endpoint}'.format(lang=lang_code)
+    response = requests.get(url)
+    if (response.status_code == 200 or response.status_code == 404):
+        return response.json(), response.status_code
+    else:
+        return {'status': response.status_code, 'message': response.reason}
 
 # Main function
 def main():
     # Open CSV file for writing
-    with open('pet_clinic.csv', 'w', newline='', encoding='utf-8') as csvfile:
-        fieldnames = ['testCaseId', 'queryParameters', 'operationId', 'path', 'httpMethod', 'headerParameters',
+    with open('country_info_lang.csv', 'w', newline='', encoding='utf-8') as csvfile:
+        fieldnames = ['testCaseId', 'queryParameters', 'operationId', 'path', 'httpMethod', 'headerParameters', 
                       'pathParameters', 'formParameters', 'bodyParameter', 'statusCode', 'responseBody']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
 
-        for i in range(200):  # Send 200 requests
-            owner_data = {
-                "firstName": f"basu_{i}",
-                "lastName": "Franklin",
-                "address": "110 W. Liberty St.",
-                "city": "Madison",
-                "telephone": "6085551023"
-            }
-            response_data, status_code = add_owner(owner_data)
-            print(f"Request {i+1} - Status Code: {status_code}")
-
+        # Loop through country names
+        for i, lang_code in enumerate(lang_codes):
+            country_info, status = get_country_info(lang_code)
+            print("API Call " + str(i) + "\nStatus Code " + str(status))
+            response_body = json.dumps(country_info)
             writer.writerow({
-                'testCaseId': i + 1,
+                'testCaseId': i,
                 'queryParameters': '',
-                'operationId': 'base',
-                'path': endpoint,  # Corrected path
-                'httpMethod': 'POST',  # Corrected HTTP method
-                'headerParameters': json.dumps({'accept': 'application/json', 'Content-Type': 'application/json'}),
-                'pathParameters': '',  # No path parameters for this request
+                'operationId': 'v3Lang',
+                'path': '/lang/{lang}',
+                'httpMethod': 'GET',
+                'headerParameters': '',
+                'pathParameters': f'lang={lang_code}',
                 'formParameters': '',
-                'bodyParameter': json.dumps(owner_data),
-                'statusCode': status_code,
-                'responseBody': json.dumps(response_data)
+                'bodyParameter': '',
+                'statusCode': status,
+                'responseBody': response_body
             })
 
 if __name__ == '__main__':

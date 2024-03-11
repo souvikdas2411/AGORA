@@ -7,7 +7,6 @@ paths:
   /name/{name}:
     get:
       summary: Get country information by name
-      description: Retrieve information about a country by its name.
       operationId: v3Name
       produces:
         - application/json

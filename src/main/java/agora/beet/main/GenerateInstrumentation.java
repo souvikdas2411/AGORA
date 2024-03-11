@@ -12,6 +12,7 @@ import io.swagger.v3.oas.models.Paths;
 import io.swagger.v3.parser.OpenAPIV3Parser;
 import io.swagger.v3.parser.core.models.ParseOptions;
 
+
 import java.io.*;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -25,8 +26,8 @@ import java.util.stream.Collectors;
  */
 public class GenerateInstrumentation {
 
-    private static String openApiSpecPath = "src/test/resources/examples/TheCatAPI/specSw.yaml";
-    private static String testCasesFilePath = "src/test/resources/examples/TheCatAPI/100/cat_info.csv";
+    private static String openApiSpecPath = "";
+    private static String testCasesFilePath = "";
     private static boolean generateDtrace = true;
     public static String[] stringsToConsiderAsNull = {};
 
@@ -135,8 +136,8 @@ public class GenerateInstrumentation {
                 while((testCasesLine = testCasesBR.readLine()) != null) {
                     TestCase testCase = testCaseFileManager.getTestCase(CSVManager.getCSVRecord(testCasesLine));
 
-                    if((i+1)%50==0){
-                        System.out.println("Generated dtrace for " + (i+1) + " test cases");
+                    if(i%50==0){
+                        System.out.println("Generated dtrace for " + i + " test cases");
                     }
                     i++;
 
@@ -195,6 +196,7 @@ public class GenerateInstrumentation {
         ParseOptions parseOptions = new ParseOptions();
         parseOptions.setResolveFully(true);
         parseOptions.setFlatten(true);
+
         return new OpenAPIV3Parser().read(openApiSpecPath, null, parseOptions);
     }
 
