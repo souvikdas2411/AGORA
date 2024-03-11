@@ -1,19 +1,19 @@
 swagger: '2.0'
-host: restcountries.com
+info:
+  title: Rest Countries API
+  description: API for retrieving information about countries based on language
+  version: 1.0.0
 basePath: /v3.1
 schemes:
   - https
 paths:
-  /alpha/{code}:
+  /lang/{lang}:
     get:
-      summary: Get country information by code
-      operationId: v3Code
-      produces:
-        - application/json
+      summary: Get countries by language
       parameters:
-        - code: code
+        - name: lang
           in: path
-          description: Country code (e.g., AF)
+          description: Language code (e.g., "Afrikaans")
           required: true
           type: string
       responses:
@@ -34,7 +34,12 @@ paths:
                     nativeName:
                       type: object
                       additionalProperties:
-                        type: string
+                        type: object
+                        properties:
+                          official:
+                            type: string
+                          common:
+                            type: string
                 tld:
                   type: array
                   items:
@@ -57,6 +62,11 @@ paths:
                   type: object
                   additionalProperties:
                     type: object
+                    properties:
+                      name:
+                        type: string
+                      symbol:
+                        type: string
                 idd:
                   type: object
                   properties:
@@ -86,6 +96,11 @@ paths:
                   type: object
                   additionalProperties:
                     type: object
+                    properties:
+                      official:
+                        type: string
+                      common:
+                        type: string
                 latlng:
                   type: array
                   items:
@@ -102,6 +117,11 @@ paths:
                   type: object
                   additionalProperties:
                     type: object
+                    properties:
+                      f:
+                        type: string
+                      m:
+                        type: string
                 flag:
                   type: string
                 maps:
@@ -112,7 +132,11 @@ paths:
                     openStreetMaps:
                       type: string
                 population:
-                  type: number
+                  type: integer
+                gini:
+                  type: object
+                  additionalProperties:
+                    type: number
                 fifa:
                   type: string
                 car:
@@ -157,17 +181,12 @@ paths:
                       type: array
                       items:
                         type: number
-      x-codeSamples:
-        - lang: shell
-          source: curl -X GET "https://restcountries.com/v3.1/alpha/{code}" -H  "accept: application/json"
-        - lang: javascript
-          source: |
-            fetch("https://restcountries.com/v3.1/alpha/{code}", {
-              method: "GET",
-              headers: {
-                "Accept": "application/json"
-              }
-            })
-            .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(error => console.error(error))
+                postalCode:
+                  type: object
+                  properties:
+                    format:
+                      type: string
+                    regex:
+                      type: string
+      tags:
+        - Countries
