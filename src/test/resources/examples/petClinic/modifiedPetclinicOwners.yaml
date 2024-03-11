@@ -11,47 +11,64 @@ paths:
     post:
       summary: "Create a new pet owner"
       operationId: base
+      description: "Endpoint to create a new pet owner."
       consumes:
         - "application/json"
       produces:
         - "application/json"
       parameters:
         - in: body
-          name: owner
+          name: body
           description: "Pet owner object to be created"
           required: true
           schema:
-            type: object
-            properties:
-              firstName:
-                type: string
-              lastName:
-                type: string
-              address:
-                type: string
-              city:
-                type: string
-              telephone:
-                type: string
+            $ref: "#/definitions/OwnerInput"
       responses:
-        200:
-          description: "Successful operation"
+        201:
+          description: "Successful creation of pet owner"
           schema:
-            type: object
-            properties:
-              firstName:
-                type: string
-              lastName:
-                type: string
-              address:
-                type: string
-              city:
-                type: string
-              telephone:
-                type: string
-              id:
-                type: integer
-              pets:
-                type: array
-                items:
-                  type: object
+            $ref: "#/definitions/Owner"
+definitions:
+  OwnerInput:
+    type: object
+    properties:
+      firstName:
+        type: string
+        description: "The first name of the owner."
+      lastName:
+        type: string
+        description: "The last name of the owner."
+      address:
+        type: string
+        description: "The address of the owner."
+      city:
+        type: string
+        description: "The city of the owner."
+      telephone:
+        type: string
+        description: "The telephone number of the owner."
+  Owner:
+    type: object
+    properties:
+      firstName:
+        type: string
+        description: "The first name of the owner."
+      lastName:
+        type: string
+        description: "The last name of the owner."
+      address:
+        type: string
+        description: "The address of the owner."
+      city:
+        type: string
+        description: "The city of the owner."
+      telephone:
+        type: string
+        description: "The telephone number of the owner."
+      id:
+        type: integer
+        format: int64
+        description: "The unique ID of the owner."
+      pets:
+        type: array
+        items: {}
