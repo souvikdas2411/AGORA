@@ -1,0 +1,117 @@
+openapi: 3.0.1
+info:
+  title: Marvel Characters API
+  description: API for accessing Marvel character information.
+  version: 1.0.0
+servers:
+  - url: 'http://gateway.marvel.com/v1/public'
+paths:
+  /characters:
+    get:
+      summary: List characters
+      description: Fetches lists of characters.
+      operationId: listCharacters
+      parameters:
+        - name: name
+          in: query
+          schema:
+            type: string
+          description: Return only characters matching the specified full character name (e.g., Spider-Man).
+          required: false
+        - name: nameStartsWith
+          in: query
+          schema:
+            type: string
+          description: Return characters with names that begin with the specified string (e.g., Sp).
+          required: false
+        - name: modifiedSince
+          in: query
+          schema:
+            type: string
+          description: Return only characters which have been modified since the specified date.
+          required: false
+        - name: comics
+          in: query
+          schema:
+            type: string
+          description: Return only characters which appear in the specified comics (accepts a comma-separated list of ids).
+          required: false
+        - name: series
+          in: query
+          schema:
+            type: string
+          description: Return only characters which appear in the specified series (accepts a comma-separated list of ids).
+          required: false
+        - name: events
+          in: query
+          schema:
+            type: string
+          description: Return only characters which appear in the specified events (accepts a comma-separated list of ids).
+          required: false
+        - name: stories
+          in: query
+          schema:
+            type: string
+          description: Return only characters which appear in the specified stories (accepts a comma-separated list of ids).
+          required: false
+        - name: orderBy
+          in: query
+          schema:
+            type: string
+          description: Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
+          required: false
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          description: Limit the result set to the specified number of resources.
+          required: false
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          description: Skip the specified number of resources in the result set.
+          required: false
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CharacterDataWrapper'
+components:
+  schemas:
+    CharacterDataWrapper:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            offset:
+              type: integer
+              description: The requested offset (number of skipped results) of the call.
+            limit:
+              type: integer
+              description: The requested result limit.
+            total:
+              type: integer
+              description: The total number of resources available given the current filter set.
+            count:
+              type: integer
+              description: The total number of results returned by this call.
+            results:
+              type: array
+              items:
+                $ref: '#/components/schemas/Character'
+    Character:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The unique ID of the character.
+        name:
+          type: string
+          description: The name of the character.
+        description:
+          type: string
+          description: A short bio or description of the character.
