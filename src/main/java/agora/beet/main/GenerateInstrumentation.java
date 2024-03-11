@@ -26,8 +26,8 @@ import java.util.stream.Collectors;
  */
 public class GenerateInstrumentation {
 
-    private static String openApiSpecPath = "/Users/souvikdas/Desktop/OSU/CS569/AGORA/src/test/resources/examples/RESTCountries/langSw.yaml";
-    private static String testCasesFilePath = "/Users/souvikdas/Desktop/OSU/CS569/AGORA/src/test/resources/examples/RESTCountries/lang/200/country_info_lang.csv";
+    private static String openApiSpecPath = "/Users/souvikdas/Desktop/OSU/CS569/AGORA/src/test/resources/examples/RESTCountries/codeSw.yaml";
+    private static String testCasesFilePath = "/Users/souvikdas/Desktop/OSU/CS569/AGORA/src/test/resources/examples/RESTCountries/code/200/country_info_code.csv";
     private static boolean generateDtrace = true;
     public static String[] stringsToConsiderAsNull = {};
 
