@@ -43,6 +43,3 @@ definitions:
         type: integer
         format: int64
         description: "The unique ID of the owner."
-      pets:
-        type: array
-        items: {}
