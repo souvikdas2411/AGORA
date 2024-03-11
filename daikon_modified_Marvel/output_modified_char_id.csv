@@ -1,0 +1,33 @@
+Daikon version 5.8.10, released November 1, 2021; http://plse.cs.washington.edu/daikon.
+Reading declaration files .(read 1 decls file)
+Processing trace data; reading 1 dtrace file:
+
+===========================================================================
+/characters/{character_id}&characterId&200&data&results():::ENTER
+input != null
+===========================================================================
+/characters/{character_id}&characterId&200&data&results():::EXIT
+input == orig(input)
+input != null
+return != null
+return.name != return.description
+===========================================================================
+/characters/{character_id}&characterId&200():::ENTER
+input != null
+===========================================================================
+/characters/{character_id}&characterId&200():::EXIT
+input == orig(input)
+return.data.offset == size(return.data.results[])-1
+return.data.total == return.data.count
+return.data.total == size(return.data.results[])
+return.data.results[return.data.offset] == return.data.results[return.data.total-1]
+return.data.results[return.data.offset] == return.data.results[return.data.count-1]
+input != null
+return != null
+return.data != null
+return.data.limit == 20
+return.data.total == 1
+return.data.results != null
+return.data.results[] elements != null
+return.data.results[] elements == return.data.results[return.data.offset]
+Exiting Daikon.
