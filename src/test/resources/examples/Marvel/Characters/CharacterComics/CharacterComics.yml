@@ -1,192 +1,170 @@
-openapi: 3.0.1
+swagger: '2.0'
 info:
   title: Marvel Characters API
   description: API for accessing comic information related to Marvel characters.
   version: 1.0.0
-servers:
-  - url: 'http://gateway.marvel.com/v1/public'
+host: gateway.marvel.com
+basePath: /v1/public
+schemes:
+  - http
 paths:
   /characters/{characterId}/comics:
     get:
       summary: Character comics
       description: Fetches lists of comics filtered by a character ID.
-      operationId: characterId/comics
+      operationId: getCharacterComics
+      produces:
+        - application/json
       parameters:
         - name: characterId
           in: path
           required: true
-          schema:
-            type: string
+          type: string
           description: The character ID.
         - name: format
           in: query
-          schema:
-            type: string
+          type: string
           description: Filter by the issue format (e.g., comic, digital comic, hardcover).
         - name: formatType
           in: query
-          schema:
-            type: string
+          type: string
           description: Filter by the issue format type (comic or collection).
         - name: noVariants
           in: query
-          schema:
-            type: boolean
+          type: boolean
           description: Exclude variant comics from the result set.
         - name: dateDescriptor
           in: query
-          schema:
-            type: string
+          type: string
           description: Return comics within a predefined date range.
         - name: dateRange
           in: query
-          schema:
-            type: string
+          type: string
           description: Return comics within a predefined date range. Dates must be specified as date1,date2.
         - name: diamondCode
           in: query
-          schema:
-            type: string
+          type: string
           description: Filter by diamond code.
         - name: digitalId
           in: query
-          schema:
-            type: integer
+          type: integer
           description: Filter by digital comic ID.
         - name: upc
           in: query
-          schema:
-            type: string
+          type: string
           description: Filter by UPC.
         - name: isbn
           in: query
-          schema:
-            type: string
+          type: string
           description: Filter by ISBN.
         - name: ean
           in: query
-          schema:
-            type: string
+          type: string
           description: Filter by EAN.
         - name: issn
           in: query
-          schema:
-            type: string
+          type: string
           description: Filter by ISSN.
         - name: hasDigitalIssue
           in: query
-          schema:
-            type: boolean
+          type: boolean
           description: Include only results which are available digitally.
         - name: modifiedSince
           in: query
-          schema:
-            type: string
+          type: string
           description: Return only comics which have been modified since the specified date.
         - name: creators
           in: query
-          schema:
-            type: string
+          type: string
           description: Return only comics which feature work by the specified creators (accepts a comma-separated list of ids).
         - name: series
           in: query
-          schema:
-            type: string
+          type: string
           description: Return only comics which are part of the specified series (accepts a comma-separated list of ids).
         - name: events
           in: query
-          schema:
-            type: string
+          type: string
           description: Return only comics which take place in the specified events (accepts a comma-separated list of ids).
         - name: stories
           in: query
-          schema:
-            type: string
+          type: string
           description: Return only comics which contain the specified stories (accepts a comma-separated list of ids).
         - name: sharedAppearances
           in: query
-          schema:
-            type: string
+          type: string
           description: Return only comics in which the specified characters appear together.
         - name: collaborators
           in: query
-          schema:
-            type: string
+          type: string
           description: Return only comics in which the specified creators worked together.
         - name: orderBy
           in: query
-          schema:
-            type: string
+          type: string
           description: Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
         - name: limit
           in: query
-          schema:
-            type: integer
+          type: integer
           description: Limit the result set to the specified number of resources.
         - name: offset
           in: query
-          schema:
-            type: integer
+          type: integer
           description: Skip the specified number of resources in the result set.
       responses:
         '200':
           description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ComicDataWrapper'
-components:
-  schemas:
-    ComicDataWrapper:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            results:
-              type: array
-              items:
-                $ref: '#/components/schemas/Comic'
-    Comic:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: The unique ID of the comic.
-        title:
-          type: string
-          description: The title of the comic.
-        issueNumber:
-          type: integer
-          description: The issue number of the comic.
-        variantDescription:
-          type: string
-          description: The variant description of the comic.
-        description:
-          type: string
-          description: A short bio or description of the comic.
-        modified:
-          type: string
-          format: date
-          description: The last modified date of the comic.
-        isbn:
-          type: string
-          description: The ISBN of the comic.
-        upc:
-          type: string
-          description: The UPC barcode number of the comic.
-        diamondCode:
-          type: string
-          description: The Diamond code of the comic.
-        ean:
-          type: string
-          description: The EAN barcode number of the comic.
-        issn:
-          type: string
-          description: The ISSN barcode number of the comic.
-        format:
-          type: string
-          description: The format of the comic.
-        pageCount:
-          type: integer
-          description: The number of pages of the comic.
+          schema:
+            $ref: '#/definitions/ComicDataWrapper'
+definitions:
+  ComicDataWrapper:
+    type: object
+    properties:
+      data:
+        type: object
+        properties:
+          results:
+            type: array
+            items:
+              $ref: '#/definitions/Comic'
+  Comic:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: The unique ID of the comic.
+      title:
+        type: string
+        description: The title of the comic.
+      issueNumber:
+        type: integer
+        description: The issue number of the comic.
+      variantDescription:
+        type: string
+        description: The variant description of the comic.
+      description:
+        type: string
+        description: A short bio or description of the comic.
+      modified:
+        type: string
+        format: date
+        description: The last modified date of the comic.
+      isbn:
+        type: string
+        description: The ISBN of the comic.
+      upc:
+        type: string
+        description: The UPC barcode number of the comic.
+      diamondCode:
+        type: string
+        description: The Diamond code of the comic.
+      ean:
+        type: string
+        description: The EAN barcode number of the comic.
+      issn:
+        type: string
+        description: The ISSN barcode number of the comic.
+      format:
+        type: string
+        description: The format of the comic.
+      pageCount:
+        type: integer
+        description: The number of pages of the comic.
