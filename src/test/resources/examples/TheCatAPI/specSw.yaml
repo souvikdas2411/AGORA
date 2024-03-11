@@ -1,0 +1,66 @@
+swagger: "2.0"
+host: "api.thecatapi.com"
+basePath: "/v1"
+schemes:
+  - "https"
+paths:
+  /votes:
+    post:
+      summary: "Submit a vote for a cat image"
+      description: "Submit a vote with a value of 1 for a cat image identified by its image_id"
+      operationId: v1Votes
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Vote details"
+          required: true
+          schema:
+            type: "object"
+            properties:
+              image_id:
+                type: "string"
+                description: "The ID of the cat image to vote for"
+              sub_id:
+                type: "string"
+                description: "Optional unique user ID"
+              value:
+                type: "integer"
+                description: "The value of the vote (1 for upvote)"
+                enum: [1]
+      responses:
+        201:
+          description: "Vote submitted successfully"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+                example: "SUCCESS"
+              id:
+                type: "integer"
+                example: 1157765
+              image_id:
+                type: "string"
+                example: "4eq"
+              sub_id:
+                type: "string"
+                example: "optional_unique_user_id"
+              value:
+                type: "integer"
+                example: 1
+              country_code:
+                type: "string"
+                example: "US"
+        
+      security:
+        - apiKey: []
+definitions: {}
+securityDefinitions:
+  apiKey:
+    type: "apiKey"
+    name: "x-api-key"
+    in: "header"
