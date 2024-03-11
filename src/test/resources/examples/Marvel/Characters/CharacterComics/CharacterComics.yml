@@ -23,90 +23,112 @@ paths:
           description: The character ID.
         - name: format
           in: query
+          required: false
           type: string
           description: Filter by the issue format (e.g., comic, digital comic, hardcover).
         - name: formatType
           in: query
+          required: false
           type: string
           description: Filter by the issue format type (comic or collection).
         - name: noVariants
           in: query
+          required: false
           type: boolean
           description: Exclude variant comics from the result set.
         - name: dateDescriptor
           in: query
+          required: false
           type: string
           description: Return comics within a predefined date range.
         - name: dateRange
           in: query
+          required: false
           type: string
           description: Return comics within a predefined date range. Dates must be specified as date1,date2.
         - name: diamondCode
           in: query
+          required: false
           type: string
           description: Filter by diamond code.
         - name: digitalId
           in: query
+          required: false
           type: integer
           description: Filter by digital comic ID.
         - name: upc
           in: query
+          required: false
           type: string
           description: Filter by UPC.
         - name: isbn
           in: query
+          required: false
           type: string
           description: Filter by ISBN.
         - name: ean
           in: query
+          required: false
           type: string
           description: Filter by EAN.
         - name: issn
           in: query
+          required: false
           type: string
           description: Filter by ISSN.
         - name: hasDigitalIssue
           in: query
+          required: false
           type: boolean
           description: Include only results which are available digitally.
         - name: modifiedSince
           in: query
+          required: false
           type: string
           description: Return only comics which have been modified since the specified date.
         - name: creators
           in: query
-          type: string
-          description: Return only comics which feature work by the specified creators (accepts a comma-separated list of ids).
+          required: false
+          type: integer
+          description: Return only comics which feature work by the specified creators.
         - name: series
           in: query
-          type: string
-          description: Return only comics which are part of the specified series (accepts a comma-separated list of ids).
+          required: false
+          type: integer
+          description: Return only comics which are part of the specified series.
         - name: events
           in: query
-          type: string
-          description: Return only comics which take place in the specified events (accepts a comma-separated list of ids).
+          required: false
+          type: integer
+          description: Return only comics which take place in the specified events.
         - name: stories
           in: query
-          type: string
-          description: Return only comics which contain the specified stories (accepts a comma-separated list of ids).
+          required: false
+          type: integer
+          description: Return only comics which contain the specified stories.
         - name: sharedAppearances
           in: query
-          type: string
+          required: false
+          type: integer
           description: Return only comics in which the specified characters appear together.
         - name: collaborators
           in: query
-          type: string
+          required: false
+          type: integer
           description: Return only comics in which the specified creators worked together.
         - name: orderBy
           in: query
+          required: false
           type: string
-          description: Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
+          description: Order the result set by a field or fields. Add a “-” to the value sort in descending order.
         - name: limit
           in: query
+          required: false
           type: integer
           description: Limit the result set to the specified number of resources.
         - name: offset
           in: query
+          required: false
           type: integer
           description: Skip the specified number of resources in the result set.
       responses:
